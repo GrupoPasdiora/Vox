@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VoxMed — volte para casa quando o caso termina</title>
+<meta name="description" content="A papelada é a única parte do plantão que dá para devolver. Dite durante o caso, confira campo a campo, assine com biometria. Ficha anestésica e relatório de cirurgia. 30 dias grátis.">
+<meta property="og:title" content="VoxMed — volte para casa quando o caso termina">
+<meta property="og:description" content="Prontuário por voz com revisão médica. A ficha se escreve enquanto você trabalha — você só confere e assina.">
+<meta property="og:image" content="img/hero-gravacao.jpg">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --branco:#ffffff;
+    --neve:#fbfaff;
+    --tinta:#17102e;
+    --tinta-2:#5b5477;
+    --violeta:#7c3aed;
+    --violeta-2:#6023d1;
+    --lilas-10:#f3efff;
+    --lilas-20:#e9e2fc;
+    --lilas-40:#cdbcf5;
+    --fio:#eceafc;
+    --escuro:#151032;
+    --sombra-suave:0 2px 8px rgba(23,16,46,.04),0 24px 60px -24px rgba(23,16,46,.14);
+    --sombra-flutuante:0 40px 90px -30px rgba(76,29,149,.35);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:92px}
+  html,body{overflow-x:clip}
+  body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       background:var(--neve);color:var(--tinta);line-height:1.65;font-size:1.0625rem;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;height:auto;display:block}
+  a{color:inherit}
+  .container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+
+  .rev{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1)}
+  .rev.in{opacity:1;transform:none}
+  .rev.d1{transition-delay:.08s}.rev.d2{transition-delay:.16s}.rev.d3{transition-delay:.24s}
+  @media (prefers-reduced-motion: reduce){.rev{opacity:1;transform:none;transition:none}}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;background:linear-gradient(180deg,#8b52f5,var(--violeta) 55%,var(--violeta-2));
+       color:#fff;font-weight:650;text-decoration:none;padding:1.02rem 1.9rem;border-radius:999px;font-size:1.02rem;
+       box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 12px 30px -8px rgba(124,58,237,.55);
+       transition:transform .18s ease,box-shadow .18s ease}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 18px 40px -10px rgba(124,58,237,.6)}
+  .btn .seta{transition:transform .18s ease}
+  .btn:hover .seta{transform:translateX(3px)}
+  .btn-fantasma{display:inline-flex;align-items:center;gap:.5rem;color:var(--tinta);font-weight:600;text-decoration:none;
+       padding:1.02rem 1.5rem;border-radius:999px;border:1px solid var(--fio);background:#fff;
+       box-shadow:var(--sombra-suave);transition:border-color .18s ease,transform .18s ease}
+  .btn-fantasma:hover{border-color:var(--lilas-40);transform:translateY(-2px)}
+  .micro{display:block;margin-top:.85rem;font-size:.85rem;color:var(--tinta-2)}
+
+  header{position:fixed;inset:0 0 auto;z-index:90;background:rgba(251,250,255,.72);
+         backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);
+         border-bottom:1px solid rgba(236,234,252,.9)}
+  .nav{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:.8rem 1.5rem}
+  .marca{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-weight:800;font-size:1.22rem;letter-spacing:-.02em}
+  .marca img{width:36px;height:36px}
+  .marca b{background:linear-gradient(90deg,var(--violeta),#9d6bff);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .nav-links{display:none;gap:2.2rem;font-size:.93rem;font-weight:600;color:var(--tinta-2)}
+  .nav-links a{text-decoration:none;transition:color .15s ease}
+  .nav-links a:hover{color:var(--violeta)}
+  .nav-cta{font-size:.92rem;font-weight:650;text-decoration:none;color:var(--violeta);
+           border:1px solid var(--lilas-20);background:#fff;padding:.55rem 1.1rem;border-radius:999px;
+           transition:box-shadow .18s ease,border-color .18s ease}
+  .nav-cta:hover{border-color:var(--lilas-40);box-shadow:0 6px 18px -6px rgba(124,58,237,.35)}
+
+  .hero{position:relative;padding:9.5rem 0 4rem;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+      background:
+        radial-gradient(560px 380px at 82% 18%,rgba(157,107,255,.16),transparent 65%),
+        radial-gradient(480px 320px at 8% 78%,rgba(124,58,237,.10),transparent 60%)}
+  .hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+      background-image:radial-gradient(rgba(23,16,46,.075) 1px,transparent 1px);
+      background-size:22px 22px;
+      -webkit-mask-image:radial-gradient(720px 520px at 70% 30%,#000 30%,transparent 75%);
+              mask-image:radial-gradient(720px 520px at 70% 30%,#000 30%,transparent 75%)}
+  .hero-grid{position:relative;z-index:1;display:grid;gap:3rem;align-items:center}
+  .pastilha{display:inline-flex;align-items:center;gap:.5rem;font-size:.8rem;font-weight:650;color:var(--violeta-2);
+       background:var(--lilas-10);border:1px solid var(--lilas-20);padding:.42rem .95rem;border-radius:999px;letter-spacing:.02em}
+  .pastilha .ponto{width:7px;height:7px;border-radius:50%;background:var(--violeta);animation:respira 2.4s ease-in-out infinite}
+  @keyframes respira{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.8)}}
+  .hero h1{font-size:clamp(2.7rem,6.4vw,4.7rem);line-height:1.02;letter-spacing:-.038em;font-weight:800;margin:1.3rem 0 1.4rem}
+  .hero h1 .grad{background:linear-gradient(92deg,var(--violeta) 10%,#a06bff 60%,#c39bff);
+       -webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero .sub{color:var(--tinta-2);font-size:clamp(1.05rem,2vw,1.22rem);max-width:33rem;margin-bottom:2.2rem}
+  .hero .sub b{color:var(--tinta)}
+  .hero .acoes{display:flex;flex-wrap:wrap;gap:.9rem;align-items:center}
+  .fatos{display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;margin-top:2.6rem;padding-top:1.6rem;border-top:1px solid var(--fio);
+         color:var(--tinta-2);font-size:.88rem;font-weight:550}
+  .fatos b{color:var(--tinta)}
+
+  .palco{position:relative;justify-self:center;width:min(560px,94%)}
+  .palco .moldura{border-radius:30px;overflow:hidden;box-shadow:var(--sombra-flutuante);
+        animation:flutua 8s ease-in-out infinite;position:relative}
+  .palco .moldura::after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,rgba(124,58,237,.18),transparent 45%)}
+  @keyframes flutua{0%,100%{transform:translateY(0) rotate(.4deg)}50%{transform:translateY(-12px) rotate(-.5deg)}}
+  .cartao-vidro{position:absolute;display:flex;align-items:center;gap:.6rem;z-index:2;
+       background:rgba(255,255,255,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+       border:1px solid rgba(255,255,255,.9);box-shadow:var(--sombra-suave);
+       border-radius:16px;padding:.7rem 1rem;font-size:.85rem;font-weight:650}
+  .cartao-vidro .ic{display:grid;place-items:center;width:30px;height:30px;border-radius:10px;color:#fff;
+       background:linear-gradient(160deg,#8b52f5,var(--violeta-2));font-size:.9rem}
+  .cartao-vidro small{display:block;font-weight:500;color:var(--tinta-2);font-size:.72rem;line-height:1.2}
+  .cv-1{top:-7%;left:-12%;animation:flutua 8s ease-in-out infinite reverse}
+  .cv-2{bottom:-7%;left:6%;animation:flutua 9s ease-in-out .6s infinite}
+  .palco .fone{position:absolute;z-index:3;width:36%;right:-7%;bottom:-14%;
+       filter:drop-shadow(0 34px 44px rgba(23,16,46,.35));
+       animation:flutua 7.5s ease-in-out .3s infinite}
+  @media (prefers-reduced-motion: reduce){.palco .fone{animation:none}}
+  @media (max-width:640px){
+    .cv-1{left:-2%;top:-6%}
+    .cv-2{left:2%;bottom:-6%}
+    .palco .fone{width:31%;right:-3%;bottom:-10%}
+    .cartao-vidro{font-size:.78rem;padding:.55rem .8rem}
+  }
+  @media (prefers-reduced-motion: reduce){.palco .moldura,.cv-1,.cv-2,.pastilha .ponto{animation:none}}
+
+  section{padding:6.5rem 0}
+  .olho{color:var(--violeta);font-weight:700;text-transform:uppercase;letter-spacing:.16em;font-size:.76rem}
+  .titulo{font-size:clamp(1.9rem,4.2vw,2.9rem);letter-spacing:-.03em;line-height:1.12;margin:.7rem 0 1rem;font-weight:800}
+  .lede{color:var(--tinta-2);max-width:37rem;font-size:1.08rem}
+  .lede b{color:var(--tinta)}
+
+  /* Dores — o que o médico não aguenta mais (em meia frase reconhecível) */
+  .dores-cab{max-width:46rem;margin-bottom:3rem}
+  .dores{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .dor{background:#fff;border:1px solid var(--fio);border-radius:22px;padding:1.7rem 1.6rem;
+       box-shadow:var(--sombra-suave);transition:transform .25s ease,box-shadow .25s ease}
+  .dor:hover{transform:translateY(-6px);box-shadow:0 2px 8px rgba(23,16,46,.05),0 34px 70px -26px rgba(76,29,149,.25)}
+  .dor h3{font-size:1.22rem;letter-spacing:-.02em;line-height:1.3;margin-bottom:.55rem}
+  .dor h3 em{font-style:normal;background:linear-gradient(92deg,var(--violeta),#a06bff);
+       -webkit-background-clip:text;background-clip:text;color:transparent}
+  .dor p{font-size:.95rem;color:var(--tinta-2);line-height:1.55}
+  .dores-fecho{margin-top:2.6rem;font-size:1.15rem;color:var(--tinta-2);max-width:44rem}
+  .dores-fecho b{color:var(--tinta)}
+
+  /* Antes → Com VoxMed */
+  .comparas{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));max-width:920px;margin:3.2rem auto 0}
+  .compara{border-radius:24px;padding:1.8rem 1.7rem;border:1px solid var(--fio);background:#fff;box-shadow:var(--sombra-suave)}
+  .compara.hoje{background:#faf9fc}
+  .compara.vox{border-color:var(--lilas-40);background:linear-gradient(170deg,#fff,var(--lilas-10))}
+  .compara h3{font-size:.85rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:1.1rem}
+  .compara.hoje h3{color:var(--tinta-2)}
+  .compara.vox h3{color:var(--violeta-2)}
+  .compara ol{list-style:none;display:grid;gap:.7rem}
+  .compara li{display:flex;gap:.7rem;align-items:flex-start;font-size:.96rem;color:var(--tinta-2)}
+  .compara li b{color:var(--tinta)}
+  .marca-x{flex:none;margin-top:.15rem;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;
+       background:#f6f3f8;border:1px solid #e8e2ee;color:#a89cc0;font-size:.72rem;font-weight:800}
+  .foto-card{border-radius:28px;overflow:hidden;box-shadow:var(--sombra-flutuante);position:relative}
+  .foto-card img{width:100%;height:100%;object-fit:cover}
+  .foto-card::after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,rgba(124,58,237,.16),transparent 45%)}
+
+  /* Como funciona — cartões numerados (as artes VoxMed entram quando chegarem) */
+  .passos-cab{text-align:center;max-width:52rem;margin:0 auto 3.4rem}
+  .passos-cab .lede{margin:0 auto}
+  .trilho{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  /* Cards dos passos: a arte VoxMed é o cartão; a legenda carrega a copy. */
+  .passo{transition:transform .3s cubic-bezier(.2,.6,.2,1)}
+  .passo:hover{transform:translateY(-8px)}
+  .passo img{width:100%;border-radius:22px;box-shadow:var(--sombra-suave);border:1px solid var(--fio)}
+  .passo p{font-size:.92rem;color:var(--tinta-2);line-height:1.55;padding:1rem .4rem 0}
+  .passo p b{color:var(--tinta)}
+
+  /* Para quem — vitrines espelhadas */
+  .vitrine{background:linear-gradient(160deg,var(--lilas-10),#fff 55%,var(--lilas-10));border-block:1px solid var(--fio)}
+  .vitrine-grid{display:grid;gap:3rem;align-items:center}
+  .vitrine .arte{width:min(500px,94%);justify-self:center;border-radius:26px;overflow:hidden;
+                 box-shadow:var(--sombra-flutuante)}
+  .vitrine .arte.solta{box-shadow:none;filter:drop-shadow(0 50px 60px rgba(23,16,46,.28));border-radius:0;overflow:visible}
+  .lista-fina{margin-top:1.8rem;display:grid;gap:1rem}
+  .lista-fina li{list-style:none;display:flex;gap:.9rem;align-items:flex-start;font-size:1rem;color:var(--tinta-2)}
+  .lista-fina li b{color:var(--tinta)}
+  .tique{flex:none;margin-top:.2rem;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;
+         background:var(--lilas-10);border:1px solid var(--lilas-20);color:var(--violeta);font-size:.72rem;font-weight:800}
+  .ver-plano{display:inline-block;margin-top:1.6rem;color:var(--violeta);font-weight:700;text-decoration:none}
+  .ver-plano:hover{text-decoration:underline}
+
+  .grade-regras{display:grid;gap:1.1rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:3rem}
+  .regra{background:#fff;border:1px solid var(--fio);border-radius:20px;padding:1.5rem 1.6rem;box-shadow:var(--sombra-suave)}
+  .regra b{display:flex;align-items:center;gap:.6rem;margin-bottom:.45rem;letter-spacing:-.01em}
+  .regra .mini{display:grid;place-items:center;width:30px;height:30px;border-radius:10px;flex:none;
+       background:var(--lilas-10);border:1px solid var(--lilas-20);font-size:.9rem}
+  .regra span{color:var(--tinta-2);font-size:.95rem}
+
+  /* Planos — a dupla de compra */
+  .planos-cab{text-align:center;max-width:46rem;margin:0 auto 3.2rem}
+  .planos{display:grid;gap:1.6rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));max-width:920px;margin:0 auto}
+  .plano{position:relative;overflow:hidden;background:#fff;border:1px solid var(--fio);border-radius:28px;
+         padding:2.4rem 2rem;box-shadow:var(--sombra-suave);display:flex;flex-direction:column;
+         transition:transform .25s ease,box-shadow .25s ease}
+  .plano:hover{transform:translateY(-6px);box-shadow:0 2px 8px rgba(23,16,46,.05),0 40px 80px -30px rgba(76,29,149,.3)}
+  .plano::before{content:"";position:absolute;inset:0 0 auto;height:5px;background:linear-gradient(90deg,var(--violeta),#a06bff)}
+  .plano .selo-teste{align-self:flex-start;font-size:.75rem;font-weight:750;color:var(--violeta-2);
+        background:var(--lilas-10);border:1px solid var(--lilas-20);padding:.35rem .8rem;border-radius:999px;
+        letter-spacing:.04em;text-transform:uppercase;margin-bottom:1.1rem}
+  .plano h3{font-size:1.5rem;letter-spacing:-.02em}
+  .plano .para{color:var(--tinta-2);font-size:.95rem;margin:.2rem 0 1.4rem}
+  .plano ul{list-style:none;display:grid;gap:.8rem;margin-bottom:2rem}
+  .plano li{display:flex;gap:.7rem;align-items:flex-start;font-size:.96rem;color:var(--tinta-2)}
+  .plano li b{color:var(--tinta)}
+  .plano .btn{margin-top:auto}
+  .planos-nota{text-align:center;color:var(--tinta-2);font-size:.95rem;margin-top:2.2rem}
+  .planos-nota a{color:var(--violeta);font-weight:650}
+
+  .faq{max-width:760px;margin:3rem auto 0}
+  details{background:#fff;border:1px solid var(--fio);border-radius:18px;padding:1.15rem 1.4rem;margin-bottom:.8rem;
+          box-shadow:var(--sombra-suave);transition:border-color .2s ease}
+  details[open]{border-color:var(--lilas-40)}
+  summary{cursor:pointer;font-weight:650;font-size:1rem;list-style:none;display:flex;justify-content:space-between;gap:1rem;align-items:center}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";color:var(--violeta);font-weight:700;font-size:1.35rem;line-height:1;transition:transform .2s ease}
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{color:var(--tinta-2);padding-top:.7rem;font-size:.97rem}
+
+  .final{background:radial-gradient(900px 480px at 50% -10%,#2b1e63,var(--escuro) 65%);color:#fff;
+         text-align:center;padding:6.5rem 0 5rem;position:relative;overflow:hidden}
+  .final::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.35;
+      background-image:radial-gradient(rgba(255,255,255,.14) 1px,transparent 1px);background-size:26px 26px;
+      -webkit-mask-image:radial-gradient(640px 420px at 50% 20%,#000 20%,transparent 75%);
+              mask-image:radial-gradient(640px 420px at 50% 20%,#000 20%,transparent 75%)}
+  .final img.logotipo{width:min(420px,76%);margin:0 auto 1.6rem;position:relative;z-index:1}
+  .final h2{font-size:clamp(2rem,5vw,3.3rem);letter-spacing:-.035em;line-height:1.08;margin-bottom:1rem;position:relative;z-index:1}
+  .final p{color:var(--lilas-40);margin-bottom:2.4rem;position:relative;z-index:1}
+  .final .btn{position:relative;z-index:1}
+
+  footer{background:var(--escuro);color:#9c93c0;font-size:.85rem;padding:2rem 0;border-top:1px solid rgba(157,107,255,.14)}
+  footer .container{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center}
+  footer b{color:#fff}
+
+  @media (min-width:900px){
+    .hero-grid{grid-template-columns:1.08fr .92fr}
+    .problema-grid{grid-template-columns:1.05fr .95fr}
+    .vitrine-grid{grid-template-columns:.95fr 1.05fr}
+    .vitrine-grid.invertida .arte{order:2}
+    .nav-links{display:flex}
+  }
+  @media (min-width:1100px){
+    .trilho{grid-template-columns:repeat(4,1fr)}
+    section{padding:7.5rem 0}
+    .hero{padding:11rem 0 5.5rem}
+  }
+  @media (min-width:1280px){
+    .palco{width:440px}
+    .foto-card{max-height:460px}
+    .hero-grid{gap:4.5rem}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav" aria-label="principal">
+    <a class="marca" href="#"><img src="img/marca.png" alt=""><span>Vox<b>Med</b></span></a>
+    <div class="nav-links" aria-label="seções">
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#para-quem">Para quem</a>
+      <a href="#seguranca">Segurança</a>
+      <a href="#planos">Planos</a>
+    </div>
+    <a class="nav-cta" href="#planos">Escolher meu plano</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="pastilha rev in"><span class="ponto"></span>Prontuário por voz</span>
+        <h1 class="rev in">Volte para casa<br><span class="grad">quando o caso termina.</span></h1>
+        <p class="sub rev in d1">A papelada é a única parte do seu plantão que dá para devolver.
+        Você dita <b>durante o caso</b>, o VoxMed monta o documento — <b>ficha anestésica</b> ou
+        <b>relatório de cirurgia</b> — e para você sobra só o que sempre deveria ter sido seu papel:
+        conferir e assinar.</p>
+        <div class="acoes rev in d2">
+          <a class="btn" href="#planos">Começar 30 dias grátis <span class="seta">→</span></a>
+          <a class="btn-fantasma" href="#como-funciona">Ver como funciona</a>
+        </div>
+        <p class="micro rev in d2">Acesso antecipado · sem cartão de crédito · cancele quando quiser</p>
+        <div class="fatos rev in d3">
+          <span><b>Voz no aparelho</b> — o áudio não sai do iPhone</span>
+          <span><b>Revisão sempre sua</b> — a IA nunca decide</span>
+          <span><b>LGPD</b> desde o primeiro dia</span>
+        </div>
+      </div>
+      <div class="palco rev in d2">
+        <div class="moldura">
+          <img src="img/hero-recuperacao.jpg" alt="Anestesista ditando o caso no celular na sala de recuperação, com a tela de gravação do VoxMed sobreposta" width="1400" height="787">
+        </div>
+        <img class="fone" src="img/fone-ficha.png" alt="iPhone com a ficha anestésica assinada no VoxMed" width="610" height="1223">
+        <div class="cartao-vidro cv-1"><span class="ic">✓</span><span>Ficha assinada<small>pronta ao fim do caso</small></span></div>
+        <div class="cartao-vidro cv-2"><span class="ic">🎙</span><span>Você fala, ela se escreve<small>o áudio não sai do aparelho</small></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= AS DORES ================= -->
+  <section>
+    <div class="container">
+      <div class="problema-grid" style="margin-bottom:3rem">
+        <div class="dores-cab rev" style="margin-bottom:0">
+          <span class="olho">Você reconhece cada uma destas</span>
+          <h2 class="titulo">Ninguém estudou uma década<br>para passar ficha a limpo</h2>
+          <p class="lede">A parte da medicina que ninguém aguenta mais não é a medicina.
+          É o que vem depois dela.</p>
+        </div>
+        <div class="foto-card rev d1">
+          <img src="img/foto-papelada.jpg" alt="Médico exausto diante da pilha de papelada no fim do plantão" loading="lazy" width="900" height="1127">
+        </div>
+      </div>
+      <div class="dores">
+        <article class="dor rev">
+          <h3>O caso acabou às 19h.<br><em>Você saiu às 20h40.</em></h3>
+          <p>A hora que a papelada rouba não volta — e ela sai sempre da sua conta:
+          do jantar, do trânsito mais leve, do seu descanso entre plantões.</p>
+        </article>
+        <article class="dor rev d1">
+          <h3>Passar a grade a limpo.<br><em>De novo.</em></h3>
+          <p>Anotar na prancheta durante o ato e redesenhar tudo depois é fazer o
+          mesmo trabalho duas vezes — todos os dias, em todos os casos.</p>
+        </article>
+        <article class="dor rev d2">
+          <h3>A glosa chega<br><em>semanas depois.</em></h3>
+          <p>Campo em branco, letra que o auditor não leu, código que faltou:
+          o convênio não paga o que não entende — e quem corre atrás é você.</p>
+        </article>
+        <article class="dor rev d3">
+          <h3>O que não está escrito<br><em>não aconteceu.</em></h3>
+          <p>Documentar de memória, horas depois, é um risco jurídico que você carrega
+          sozinho. O registro completo, feito na hora, é a sua defesa.</p>
+        </article>
+      </div>
+      <p class="dores-fecho rev"><b>O VoxMed não pede que você digite mais rápido. Ele elimina a digitação.</b>
+      Você narra o caso enquanto ele acontece — como já faz de cabeça — e o documento se monta sozinho,
+      esperando só a sua conferência.</p>
+
+      <div class="foto-card rev" style="max-width:920px;margin:3.2rem auto 0">
+        <img src="img/antes-depois.jpg" alt="À esquerda, médico exausto digitando a papelada; à direita, o mesmo médico ditando o caso no celular no centro cirúrgico" loading="lazy" width="1600" height="1000">
+      </div>
+
+      <div class="comparas">
+        <div class="compara hoje rev">
+          <h3>Hoje</h3>
+          <ol>
+            <li><span class="marca-x">✕</span><span>Rascunho na prancheta durante o caso</span></li>
+            <li><span class="marca-x">✕</span><span>Passar a limpo depois do plantão</span></li>
+            <li><span class="marca-x">✕</span><span>Grade de vitais redesenhada à mão</span></li>
+            <li><span class="marca-x">✕</span><span>Glosa por campo vazio ou letra ilegível</span></li>
+            <li><span class="marca-x">✕</span><span>Sua hora livre pagando a conta</span></li>
+          </ol>
+        </div>
+        <div class="compara vox rev d1">
+          <h3>Com o VoxMed</h3>
+          <ol>
+            <li><span class="tique">✓</span><span><b>Você fala durante o caso</b> — a ficha se monta em tempo real</span></li>
+            <li><span class="tique">✓</span><span><b>Confere campo a campo</b> — a IA nunca inventa nada</span></li>
+            <li><span class="tique">✓</span><span><b>Assina com biometria</b> ao final do ato</span></li>
+            <li><span class="tique">✓</span><span><b>Envia na hora</b>: impressão, faturamento, e-mail, WhatsApp</span></li>
+            <li><span class="tique">✓</span><span><b>E vai embora.</b> A papelada terminou junto com o caso</span></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= COMO FUNCIONA ================= -->
+  <section id="como-funciona" style="padding-top:2rem">
+    <div class="container">
+      <div class="passos-cab rev">
+        <span class="olho">Como funciona</span>
+        <h2 class="titulo">Fale. Revise. <span style="background:linear-gradient(92deg,var(--violeta),#a06bff);-webkit-background-clip:text;background-clip:text;color:transparent">Assine.</span></h2>
+        <p class="lede">Quatro passos. Nenhum deles é “digitar”.</p>
+      </div>
+      <div class="trilho">
+        <article class="passo rev">
+          <img src="img/passo-1.jpg" alt="Passo 1 — Fale: o prontuário fica pronto com sua voz" loading="lazy">
+          <p>Dite o caso como você já fala — a avaliação, os vitais, a narrativa.
+          Funciona até sem internet, e o áudio nunca sai do aparelho.</p>
+        </article>
+        <article class="passo rev d1">
+          <img src="img/passo-2.jpg" alt="Passo 2 — A IA organiza sua fala em um prontuário estruturado" loading="lazy">
+          <p>O que você falou vira campos do documento. O que você não disse fica
+          em branco — <b>a IA nunca inventa</b>.</p>
+        </article>
+        <article class="passo rev d2">
+          <img src="img/passo-3.jpg" alt="Passo 3 — Revise e aprove os detalhes do documento" loading="lazy">
+          <p>Cada campo espera a sua aprovação. Campo crítico pendente bloqueia a
+          assinatura: nada sai sem passar pelos seus olhos.</p>
+        </article>
+        <article class="passo rev d3">
+          <img src="img/passo-4.jpg" alt="Passo 4 — Assine digitalmente e envie com segurança" loading="lazy">
+          <p>Biometria do seu iPhone. Depois: imprima para o prontuário, gere o
+          pacote de faturamento, envie por e-mail ou WhatsApp.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PARA QUEM: ANESTESIA ================= -->
+  <section class="vitrine" id="para-quem">
+    <div class="container vitrine-grid">
+      <img class="arte rev" src="img/tablet-anestesia.jpg" alt="Ficha anestésica no tablet dentro da sala de cirurgia, com campos aprovados e barra de progresso" loading="lazy" width="1300" height="1125">
+      <div class="rev d1">
+        <span class="olho">VoxMed Anestesia</span>
+        <h2 class="titulo">A ficha anestésica<br>que se preenche na sala</h2>
+        <p class="lede">A mesma ficha que você conhece do papel — avaliação pré-anestésica, ASA,
+        técnica, monitorização — montada pela sua voz, com o intraoperatório em tempo real.</p>
+        <ul class="lista-fina">
+          <li><span class="tique">✓</span><span><b>A grade de vitais se desenha sozinha.</b> “Pressão doze por oito, pulso setenta e dois” — e o gráfico estilo papel vai se montando.</span></li>
+          <li><span class="tique">✓</span><span><b>Modo sala.</b> Vitais, gases, agentes e eventos registrados em tempo real durante o ato.</span></li>
+          <li><span class="tique">✓</span><span><b>Saia do hospital com a ficha assinada</b> — impressa, no faturamento ou no WhatsApp.</span></li>
+        </ul>
+        <a class="ver-plano" href="#planos">Ver o plano do anestesista ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PARA QUEM: CIRURGIA ================= -->
+  <section class="vitrine" style="border-top:0">
+    <div class="container vitrine-grid invertida">
+      <img class="arte rev" src="img/tablet-cirurgia.jpg" alt="Relatório cirúrgico estruturado no tablet, com cartão flutuante de relatório gerado com sucesso e selo de documento seguro" loading="lazy" width="1060" height="1210">
+      <div class="rev d1">
+        <span class="olho">VoxMed Cirurgia</span>
+        <h2 class="titulo">O relatório de cirurgia<br>sem digitar uma linha</h2>
+        <p class="lede">Terminou o ato, você narra: diagnóstico, procedimentos, equipe, descrição
+        cirúrgica. O VoxMed estrutura tudo no formato do documento oficial.</p>
+        <ul class="lista-fina">
+          <li><span class="tique">✓</span><span><b>CID-10 e procedimentos organizados.</b> A IA reconhece códigos e monta a lista — você só confere.</span></li>
+          <li><span class="tique">✓</span><span><b>Descrição cirúrgica ditada</b>, com a narrativa completa no PDF final.</span></li>
+          <li><span class="tique">✓</span><span><b>Pacote de faturamento sem narrativa clínica</b> — só o que o convênio precisa ver.</span></li>
+        </ul>
+        <a class="ver-plano" href="#planos">Ver o plano do cirurgião ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SEGURANÇA ================= -->
+  <section id="seguranca">
+    <div class="container">
+      <div class="rev" style="max-width:44rem">
+        <span class="olho">Segurança clínica e jurídica</span>
+        <h2 class="titulo">Feito para dado de saúde —<br>não adaptado depois</h2>
+        <p class="lede">Para médico, segurança não é seção de rodapé. É requisito de primeira linha.</p>
+      </div>
+      <div class="grade-regras">
+        <div class="regra rev"><b><span class="mini">🎙️</span>Transcrição no aparelho</b><span>O áudio nunca sai do iPhone. Só o texto que você aprovar segue adiante.</span></div>
+        <div class="regra rev d1"><b><span class="mini">🧾</span>Documento assinado é imutável</b><span>Cada versão é selada com hash criptográfico — adulteração é detectável.</span></div>
+        <div class="regra rev d2"><b><span class="mini">👤</span>Assinatura com biometria</b><span>Face ID ou digital. Falha de biometria nunca vira assinatura.</span></div>
+        <div class="regra rev"><b><span class="mini">🧮</span>Faturamento sem narrativa clínica</b><span>O pacote do convênio leva só o que fatura — a história do paciente fica fora, por padrão.</span></div>
+        <div class="regra rev d1"><b><span class="mini">🏥</span>Multi-clínica com isolamento</b><span>Cada clínica em compartimento próprio, isolado no banco de dados.</span></div>
+        <div class="regra rev d2"><b><span class="mini">🇧🇷</span>LGPD como fundação</b><span>Base legal, minimização e auditoria projetadas antes da primeira linha de código.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PLANOS (a dupla de compra) ================= -->
+  <section id="planos" style="padding-top:2rem">
+    <div class="container">
+      <div class="planos-cab rev">
+        <span class="olho">Acesso antecipado</span>
+        <h2 class="titulo">Escolha o seu VoxMed</h2>
+        <p class="lede" style="margin:0 auto">Troque a papelada do plantão por <b>30 dias de voz — grátis</b>.
+        Os primeiros médicos ajudam a moldar a ferramenta que vai assinar os seus documentos.</p>
+      </div>
+      <div class="planos">
+        <article class="plano rev">
+          <span class="selo-teste">30 dias grátis</span>
+          <h3>VoxMed Anestesia</h3>
+          <p class="para">Para anestesiologistas</p>
+          <ul>
+            <li><span class="tique">✓</span><span><b>Ficha anestésica completa</b> por voz, no formato do papel</span></li>
+            <li><span class="tique">✓</span><span><b>Grade de vitais em tempo real</b> + gráfico intraoperatório no PDF</span></li>
+            <li><span class="tique">✓</span><span><b>Modo sala</b> para registrar o ato enquanto ele acontece</span></li>
+            <li><span class="tique">✓</span><span>Assinatura biométrica, impressão, faturamento, e-mail e WhatsApp</span></li>
+          </ul>
+          <!-- LINK DO STRIPE (ANESTESISTA): troque o href abaixo pelo link de
+               pagamento com teste de 30 dias criado no Stripe — e aí volte o
+               texto do botão para "Começar 30 dias grátis". -->
+          <a class="btn" href="mailto:webcamargo@grupopasdiora.com.br?subject=Acesso%20antecipado%20VoxMed%20Anestesia">Pedir meu acesso antecipado <span class="seta">→</span></a>
+          <span class="micro" style="text-align:center">30 dias grátis · sem cartão de crédito · suas fichas são suas</span>
+        </article>
+        <article class="plano rev d1">
+          <span class="selo-teste">30 dias grátis</span>
+          <h3>VoxMed Cirurgia</h3>
+          <p class="para">Para cirurgiões</p>
+          <ul>
+            <li><span class="tique">✓</span><span><b>Relatório de cirurgia</b> ditado, no formato do documento oficial</span></li>
+            <li><span class="tique">✓</span><span><b>CID-10 e procedimentos</b> organizados pela IA, aprovados por você</span></li>
+            <li><span class="tique">✓</span><span><b>Descrição cirúrgica sem digitar</b>, com narrativa completa no PDF</span></li>
+            <li><span class="tique">✓</span><span>Assinatura biométrica, impressão, faturamento, e-mail e WhatsApp</span></li>
+          </ul>
+          <!-- LINK DO STRIPE (CIRURGIÃO): troque o href abaixo pelo link de
+               pagamento com teste de 30 dias criado no Stripe — e aí volte o
+               texto do botão para "Começar 30 dias grátis". -->
+          <a class="btn" href="mailto:webcamargo@grupopasdiora.com.br?subject=Acesso%20antecipado%20VoxMed%20Cirurgia">Pedir meu acesso antecipado <span class="seta">→</span></a>
+          <span class="micro" style="text-align:center">30 dias grátis · sem cartão de crédito · seus relatórios são seus</span>
+        </article>
+      </div>
+      <p class="planos-nota rev">Clínica ou equipe com os dois perfis?
+        <a href="mailto:webcamargo@grupopasdiora.com.br?subject=VoxMed%20para%20minha%20equipe">Fale com a gente</a>.</p>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section id="faq" style="padding-top:2rem">
+    <div class="container">
+      <div class="rev" style="text-align:center;max-width:44rem;margin:0 auto">
+        <span class="olho">Perguntas honestas</span>
+        <h2 class="titulo">Perguntas que todo médico faz</h2>
+      </div>
+      <div class="faq">
+        <details class="rev">
+          <summary>Funciona sem internet no centro cirúrgico?</summary>
+          <p>Sim. O VoxMed é offline-first: o documento nasce e vive no seu aparelho. Voz, grade de vitais,
+          assinatura e PDF funcionam sem rede. A internet só é necessária no primeiro login e para sincronizar.</p>
+        </details>
+        <details class="rev">
+          <summary>A IA pode inventar um dado que eu não falei?</summary>
+          <p>Não — essa é uma regra inegociável do produto. O que você não ditou fica em branco, e campo
+          crítico em branco bloqueia a assinatura. A IA sugere; quem decide, sempre, é você.</p>
+        </details>
+        <details class="rev">
+          <summary>Quanto custa depois dos 30 dias?</summary>
+          <p>O VoxMed é uma assinatura mensal individual, sem fidelidade e sem multa. Durante o acesso
+          antecipado você testa os 30 dias grátis, e o valor do plano é apresentado a você antes de
+          qualquer cobrança — nada é debitado sem o seu aceite explícito.</p>
+        </details>
+        <details class="rev">
+          <summary>Tem para Android?</summary>
+          <p>Hoje o VoxMed é feito para iPhone — é nele que a transcrição roda dentro do aparelho, sem o
+          áudio sair para a internet. A versão Android está no radar: peça seu acesso e conte qual aparelho
+          você usa; isso ajuda a definir a fila.</p>
+        </details>
+        <details class="rev">
+          <summary>Sou anestesista e também atuo em cirurgias — qual escolho?</summary>
+          <p>Cada plano corresponde a um app com o documento da sua função: a ficha anestésica ou o relatório
+          de cirurgia. Se o seu dia a dia pede os dois, fale com a gente — montamos o acesso combinado.</p>
+        </details>
+        <details class="rev">
+          <summary>O documento tem valor legal?</summary>
+          <p>Ele é selado com assinatura eletrônica avançada: biometria, hash criptográfico e trilha de
+          auditoria — e a estrutura já está pronta para certificado ICP-Brasil. Como em qualquer solução de
+          documentação clínica, a adequação às normas do seu serviço deve ser validada com ele.</p>
+        </details>
+        <details class="rev">
+          <summary>Os dados dos meus pacientes vão para a nuvem?</summary>
+          <p>O áudio, nunca — a transcrição acontece dentro do aparelho. Os dados do documento são armazenados
+          com isolamento por clínica e criptografia, em infraestrutura no Brasil, seguindo a LGPD. Enviar um
+          documento por e-mail ou WhatsApp é sempre uma ação sua, nunca automática.</p>
+        </details>
+        <details class="rev">
+          <summary>E se eu cancelar?</summary>
+          <p>Seus documentos assinados continuam no seu aparelho — são seus. Você pode exportá-los em PDF ou em
+          formato estruturado antes de sair. Sem fidelidade, sem multa.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FINAL ================= -->
+  <section class="final">
+    <div class="container">
+      <img class="logotipo rev" src="img/logo-full.png" alt="VoxMed — prontuário por voz" loading="lazy">
+      <h2 class="rev d1">A papelada não merece<br>mais uma hora da sua vida.</h2>
+      <p class="rev d2">Seu próximo documento se escreve enquanto você trabalha.<br>Você só confere e assina — é assim que deve ser.</p>
+      <a class="btn rev d2" href="#planos">Começar 30 dias grátis <span class="seta">→</span></a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <span><b>VoxMed</b> · Prontuário por voz.</span>
+    <span>© 2026 VoxMed · Feito no Brasil · LGPD</span>
+  </div>
+</footer>
+
+<script>
+  const pendentes = new Set(document.querySelectorAll(".rev:not(.in)"));
+  function revelar() {
+    const corte = innerHeight * 0.92;
+    for (const el of pendentes) {
+      const r = el.getBoundingClientRect();
+      if (r.top < corte && r.bottom > 0) { el.classList.add("in"); pendentes.delete(el); }
+    }
+    if (!pendentes.size) { removeEventListener("scroll", aoRolar); removeEventListener("resize", aoRolar); }
+  }
+  let agendado = false;
+  function aoRolar() {
+    if (agendado) return;
+    agendado = true;
+    requestAnimationFrame(() => { agendado = false; revelar(); });
+  }
+  addEventListener("scroll", aoRolar, { passive: true });
+  addEventListener("resize", aoRolar);
+  revelar();
+</script>
+
+</body>
+</html>
