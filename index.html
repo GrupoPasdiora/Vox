@@ -3,12 +3,94 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VoxMed — volte para casa quando o caso termina</title>
-<meta name="description" content="A papelada é a única parte do plantão que dá para devolver. Dite durante o caso, confira campo a campo, assine com biometria. Ficha anestésica e relatório de cirurgia. 30 dias grátis.">
+<title>VoxMed — Prontuário por voz para anestesistas e cirurgiões | Ficha anestésica e relatório cirúrgico ditados</title>
+<meta name="description" content="A papelada é a única parte do plantão que dá para devolver. Dite durante o caso, confira campo a campo, assine com biometria. Ficha anestésica e relatório de cirurgia por voz, LGPD desde o primeiro dia. 30 dias grátis, sem cartão.">
+<meta name="keywords" content="prontuário por voz, ficha anestésica digital, relatório cirúrgico por voz, documentação médica, anestesiologista, cirurgião, LGPD, VoxMed">
+<meta name="author" content="VoxMed">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#7c3aed">
+<meta name="geo.region" content="BR">
+<meta name="geo.placename" content="Brasil">
+<link rel="canonical" href="https://grupopasdiora.github.io/Vox/">
+<link rel="icon" type="image/png" sizes="64x64" href="img/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+<link rel="preload" as="image" href="img/hero-recuperacao.jpg" fetchpriority="high">
 <meta property="og:title" content="VoxMed — volte para casa quando o caso termina">
-<meta property="og:description" content="Prontuário por voz com revisão médica. A ficha se escreve enquanto você trabalha — você só confere e assina.">
-<meta property="og:image" content="img/hero-gravacao.jpg">
+<meta property="og:description" content="Prontuário por voz com revisão médica. A ficha anestésica e o relatório de cirurgia se escrevem enquanto você trabalha — você só confere e assina. 30 dias grátis.">
+<meta property="og:image" content="https://grupopasdiora.github.io/Vox/img/hero-recuperacao.jpg">
+<meta property="og:image:width" content="1400">
+<meta property="og:image:height" content="787">
+<meta property="og:url" content="https://grupopasdiora.github.io/Vox/">
+<meta property="og:site_name" content="VoxMed">
+<meta property="og:locale" content="pt_BR">
 <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VoxMed — volte para casa quando o caso termina">
+<meta name="twitter:description" content="Prontuário por voz com revisão médica: dite durante o caso, confira campo a campo, assine com biometria. 30 dias grátis.">
+<meta name="twitter:image" content="https://grupopasdiora.github.io/Vox/img/hero-recuperacao.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://grupopasdiora.github.io/Vox/#app",
+      "name": "VoxMed",
+      "alternateName": "VoxMed Prontuário por Voz",
+      "applicationCategory": "MedicalApplication",
+      "operatingSystem": "iOS",
+      "inLanguage": "pt-BR",
+      "url": "https://grupopasdiora.github.io/Vox/",
+      "image": "https://grupopasdiora.github.io/Vox/img/hero-recuperacao.jpg",
+      "description": "Prontuário por voz para anestesistas e cirurgiões: o médico dita durante o caso, a IA organiza os campos do documento (ficha anestésica ou relatório cirúrgico), o médico confere campo a campo e assina com biometria. A transcrição acontece no aparelho — o áudio não vai para a nuvem — e o documento assinado é selado com hash criptográfico, em conformidade com a LGPD.",
+      "audience": { "@type": "MedicalAudience", "audienceType": "Anestesiologistas e cirurgiões" },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BRL",
+        "description": "30 dias grátis no acesso antecipado, sem cartão de crédito. Depois, assinatura mensal individual sem fidelidade."
+      },
+      "featureList": [
+        "Ficha anestésica completa por voz, com grade de vitais em tempo real",
+        "Relatório de cirurgia ditado, com CID-10 e procedimentos organizados pela IA",
+        "Aprovação campo a campo — a IA nunca inventa dados",
+        "Assinatura com biometria (Face ID ou digital)",
+        "Funciona sem internet no centro cirúrgico (offline-first)",
+        "PDF por e-mail, WhatsApp ou impressão; pacote de faturamento sem narrativa clínica"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://grupopasdiora.github.io/Vox/#org",
+      "name": "VoxMed",
+      "url": "https://grupopasdiora.github.io/Vox/",
+      "logo": "https://grupopasdiora.github.io/Vox/img/logo-full.png",
+      "email": "webcamargo@grupopasdiora.com.br",
+      "areaServed": { "@type": "Country", "name": "Brasil" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://grupopasdiora.github.io/Vox/#faq",
+      "mainEntity": [
+        { "@type": "Question", "name": "Funciona sem internet no centro cirúrgico?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sim. O VoxMed é offline-first: o documento nasce e vive no aparelho. Voz, grade de vitais, assinatura e PDF funcionam sem rede. A internet só é necessária no primeiro login e para sincronizar." } },
+        { "@type": "Question", "name": "A IA pode inventar um dado que o médico não falou?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Não — essa é uma regra inegociável do produto. O que não foi ditado fica em branco, e campo crítico em branco bloqueia a assinatura. A IA sugere; quem decide, sempre, é o médico." } },
+        { "@type": "Question", "name": "Quanto custa depois dos 30 dias grátis?",
+          "acceptedAnswer": { "@type": "Answer", "text": "O VoxMed é uma assinatura mensal individual, sem fidelidade e sem multa. Durante o acesso antecipado, o médico testa 30 dias grátis e o valor do plano é apresentado antes de qualquer cobrança." } },
+        { "@type": "Question", "name": "Tem para Android?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Hoje o VoxMed é feito para iPhone — é nele que a transcrição roda dentro do aparelho, sem o áudio sair para a internet. A versão Android está no radar." } },
+        { "@type": "Question", "name": "O documento tem valor legal?",
+          "acceptedAnswer": { "@type": "Answer", "text": "O documento é selado com assinatura eletrônica avançada: biometria, hash criptográfico e trilha de auditoria — e a estrutura já está pronta para certificado ICP-Brasil. A adequação às normas de cada serviço deve ser validada com ele." } },
+        { "@type": "Question", "name": "Os dados dos pacientes vão para a nuvem?",
+          "acceptedAnswer": { "@type": "Answer", "text": "O áudio, nunca — a transcrição acontece dentro do aparelho. Os dados do documento são armazenados com isolamento por clínica e criptografia, em infraestrutura no Brasil, seguindo a LGPD. Enviar um documento por e-mail ou WhatsApp é sempre uma ação do médico, nunca automática." } },
+        { "@type": "Question", "name": "E se o médico cancelar a assinatura?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Os documentos assinados continuam no aparelho — são do médico, que pode exportá-los em PDF ou em formato estruturado antes de sair. Sem fidelidade, sem multa." } }
+      ]
+    }
+  ]
+}
+</script>
 <style>
   :root{
     --branco:#ffffff;
@@ -92,7 +174,7 @@
          color:var(--tinta-2);font-size:.88rem;font-weight:550}
   .fatos b{color:var(--tinta)}
 
-  .palco{position:relative;justify-self:center;width:min(560px,94%)}
+  .palco{position:relative;justify-self:center;width:min(660px,96%)}
   .palco .moldura{border-radius:30px;overflow:hidden;box-shadow:var(--sombra-flutuante);
         animation:flutua 8s ease-in-out infinite;position:relative}
   .palco .moldura::after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,rgba(124,58,237,.18),transparent 45%)}
@@ -179,6 +261,18 @@
   .ver-plano{display:inline-block;margin-top:1.6rem;color:var(--violeta);font-weight:700;text-decoration:none}
   .ver-plano:hover{text-decoration:underline}
 
+  /* Segurança — foto com elementos flutuando por cima */
+  .palco-seg{position:relative;justify-self:center;width:min(620px,92%)}
+  .palco-seg .foto-card{animation:flutua 9s ease-in-out infinite}
+  .flut{position:absolute;z-index:2;filter:drop-shadow(0 26px 38px rgba(23,16,46,.32))}
+  .flut-escudo{width:36%;left:-9%;top:-13%;animation:flutua 8s ease-in-out infinite reverse}
+  .flut-tela{width:27%;right:-6%;bottom:-14%;animation:flutua 7.5s ease-in-out .5s infinite}
+  @media (prefers-reduced-motion: reduce){.palco-seg .foto-card,.flut{animation:none}}
+  @media (max-width:640px){
+    .palco-seg{width:96%}
+    .flut-escudo{left:-3%;top:-10%}
+    .flut-tela{right:-2%;bottom:-10%}
+  }
   .grade-regras{display:grid;gap:1.1rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:3rem}
   .regra{background:#fff;border:1px solid var(--fio);border-radius:20px;padding:1.5rem 1.6rem;box-shadow:var(--sombra-suave)}
   .regra b{display:flex;align-items:center;gap:.6rem;margin-bottom:.45rem;letter-spacing:-.01em}
@@ -231,9 +325,11 @@
   footer .container{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center}
   footer b{color:#fff}
 
+  .problema-grid{display:grid;gap:3rem;align-items:center;grid-template-columns:minmax(0,1fr)}
+  .hero-grid>*,.problema-grid>*,.vitrine-grid>*{min-width:0}
   @media (min-width:900px){
-    .hero-grid{grid-template-columns:1.08fr .92fr}
-    .problema-grid{grid-template-columns:1.05fr .95fr}
+    .hero-grid{grid-template-columns:1fr 1.05fr}
+    .problema-grid{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)}
     .vitrine-grid{grid-template-columns:.95fr 1.05fr}
     .vitrine-grid.invertida .arte{order:2}
     .nav-links{display:flex}
@@ -244,9 +340,9 @@
     .hero{padding:11rem 0 5.5rem}
   }
   @media (min-width:1280px){
-    .palco{width:440px}
+    .palco{width:560px}
     .foto-card{max-height:460px}
-    .hero-grid{gap:4.5rem}
+    .hero-grid{gap:3.5rem}
   }
 </style>
 </head>
@@ -310,7 +406,9 @@
           É o que vem depois dela.</p>
         </div>
         <div class="foto-card rev d1">
-          <img src="img/foto-papelada.jpg" alt="Médico exausto diante da pilha de papelada no fim do plantão" loading="lazy" width="900" height="1127">
+          <!-- Elaine: quando baixar de novo a arte dos DOIS médicos na papelada
+               (a que veio corrompida), trocamos esta imagem por ela. -->
+          <img src="img/dores-papelada.jpg" alt="Médico exausto com a mão na testa diante da pilha de papelada no fim do plantão" loading="lazy" width="1000" height="1250">
         </div>
       </div>
       <div class="dores">
@@ -442,10 +540,20 @@
   <!-- ================= SEGURANÇA ================= -->
   <section id="seguranca">
     <div class="container">
-      <div class="rev" style="max-width:44rem">
-        <span class="olho">Segurança clínica e jurídica</span>
-        <h2 class="titulo">Feito para dado de saúde —<br>não adaptado depois</h2>
-        <p class="lede">Para médico, segurança não é seção de rodapé. É requisito de primeira linha.</p>
+      <div class="problema-grid" style="align-items:center">
+        <div class="rev" style="max-width:44rem">
+          <span class="olho">Segurança clínica e jurídica</span>
+          <h2 class="titulo">Feito para dado de saúde —<br>não adaptado depois</h2>
+          <p class="lede">Para médico, segurança não é seção de rodapé. É requisito de primeira linha.
+          O caso termina, o relatório está concluído — e cada etapa dele aconteceu protegida.</p>
+        </div>
+        <div class="palco-seg rev d1">
+          <div class="foto-card">
+            <img src="img/seguranca-cirurgiao.jpg" alt="Cirurgião saindo do centro cirúrgico mostrando o VoxMed com o relatório concluído no iPhone" loading="lazy" width="1400" height="788">
+          </div>
+          <img class="flut flut-escudo" src="img/escudo-voz.png" alt="Escudo com cadeado sobre onda de voz — criptografia de ponta a ponta" loading="lazy" width="520" height="477">
+          <img class="flut flut-tela" src="img/tela-gravacao.png" alt="Tela de gravação do VoxMed com transcrição ao vivo e áudio criptografado" loading="lazy" width="460" height="755">
+        </div>
       </div>
       <div class="grade-regras">
         <div class="regra rev"><b><span class="mini">🎙️</span>Transcrição no aparelho</b><span>O áudio nunca sai do iPhone. Só o texto que você aprovar segue adiante.</span></div>
