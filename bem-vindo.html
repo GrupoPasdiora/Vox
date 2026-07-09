@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bem-vindo ao VoxMed — seus 30 dias começaram</title>
+<meta name="description" content="Pagamento confirmado. Baixe o VoxMed no seu iPhone e dite seu primeiro caso ainda hoje.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#7c3aed">
+<link rel="icon" type="image/png" sizes="64x64" href="img/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+<style>
+  :root{
+    --branco:#ffffff; --neve:#fbfaff; --tinta:#17102e; --tinta-2:#5b5477;
+    --violeta:#7c3aed; --violeta-2:#6023d1;
+    --lilas-10:#f3efff; --lilas-20:#e9e2fc; --lilas-40:#cdbcf5; --fio:#eceafc;
+    --escuro:#151032;
+    --sombra-suave:0 2px 8px rgba(23,16,46,.04),0 24px 60px -24px rgba(23,16,46,.14);
+    --sombra-flutuante:0 40px 90px -30px rgba(76,29,149,.35);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{overflow-x:clip}
+  body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       background:var(--neve);color:var(--tinta);line-height:1.65;font-size:1.0625rem;-webkit-font-smoothing:antialiased;
+       min-height:100svh;display:flex;flex-direction:column}
+  img{max-width:100%;display:block}
+  .container{max-width:1080px;margin:0 auto;padding:0 1.5rem;width:100%}
+
+  header{padding:1.1rem 0}
+  .marca{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-weight:800;font-size:1.22rem;letter-spacing:-.02em;color:var(--tinta)}
+  .marca img{width:36px;height:36px}
+  .marca b{background:linear-gradient(90deg,var(--violeta),#9d6bff);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  main{flex:1;position:relative;padding:2.5rem 0 5rem;overflow:clip}
+  main::before{content:"";position:absolute;inset:0;pointer-events:none;
+      background:
+        radial-gradient(560px 380px at 85% 8%,rgba(157,107,255,.14),transparent 65%),
+        radial-gradient(480px 320px at 5% 90%,rgba(124,58,237,.09),transparent 60%)}
+  .grade{position:relative;z-index:1;display:grid;gap:3rem;align-items:center;grid-template-columns:minmax(0,1fr)}
+  @media (min-width:900px){.grade{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}}
+
+  .selo-ok{display:inline-flex;align-items:center;gap:.55rem;font-size:.85rem;font-weight:700;color:#0d7a43;
+      background:#e7f8ee;border:1px solid #c6ecd6;padding:.45rem 1rem;border-radius:999px;letter-spacing:.02em}
+  .selo-ok .bola{display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#18b060;color:#fff;font-size:.7rem;font-weight:800}
+  h1{font-size:clamp(2.2rem,5.4vw,3.6rem);line-height:1.06;letter-spacing:-.035em;font-weight:800;margin:1.2rem 0 1rem}
+  h1 .grad{background:linear-gradient(92deg,var(--violeta) 10%,#a06bff 60%,#c39bff);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{color:var(--tinta-2);font-size:clamp(1.02rem,1.9vw,1.18rem);max-width:34rem}
+  .sub b{color:var(--tinta)}
+
+  .passos{margin-top:2.6rem;display:grid;gap:1rem;counter-reset:passo}
+  .passo{display:flex;gap:1.1rem;align-items:flex-start;background:#fff;border:1px solid var(--fio);
+         border-radius:20px;padding:1.35rem 1.5rem;box-shadow:var(--sombra-suave)}
+  .passo .num{counter-increment:passo;flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;
+         background:linear-gradient(160deg,#8b52f5,var(--violeta-2));color:#fff;font-weight:800;font-size:1.05rem}
+  .passo .num::before{content:counter(passo)}
+  .passo h2{font-size:1.12rem;letter-spacing:-.015em;margin-bottom:.25rem}
+  .passo p{color:var(--tinta-2);font-size:.96rem}
+  .passo p b{color:var(--tinta)}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;background:linear-gradient(180deg,#8b52f5,var(--violeta) 55%,var(--violeta-2));
+       color:#fff;font-weight:650;text-decoration:none;padding:.85rem 1.5rem;border-radius:999px;font-size:.98rem;margin-top:.7rem;
+       box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 12px 30px -8px rgba(124,58,237,.55);
+       transition:transform .18s ease,box-shadow .18s ease}
+  .btn:hover{transform:translateY(-2px)}
+  .micro{display:block;margin-top:.6rem;font-size:.83rem;color:var(--tinta-2)}
+  .ajuda{margin-top:2.2rem;color:var(--tinta-2);font-size:.95rem}
+  .ajuda a{color:var(--violeta);font-weight:650}
+
+  .palco{position:relative;justify-self:center;width:min(420px,88%)}
+  .palco .fone{width:100%;filter:drop-shadow(0 40px 60px rgba(23,16,46,.32));animation:flutua 8s ease-in-out infinite}
+  .cartao-vidro{position:absolute;display:flex;align-items:center;gap:.6rem;z-index:2;
+       background:rgba(255,255,255,.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+       border:1px solid rgba(255,255,255,.9);box-shadow:var(--sombra-suave);
+       border-radius:16px;padding:.7rem 1rem;font-size:.85rem;font-weight:650}
+  .cartao-vidro .ic{display:grid;place-items:center;width:30px;height:30px;border-radius:10px;color:#fff;
+       background:linear-gradient(160deg,#8b52f5,var(--violeta-2));font-size:.9rem}
+  .cartao-vidro small{display:block;font-weight:500;color:var(--tinta-2);font-size:.72rem;line-height:1.2}
+  .cv-a{top:6%;left:-16%;animation:flutua 8s ease-in-out infinite reverse}
+  .cv-b{bottom:8%;right:-12%;animation:flutua 9s ease-in-out .6s infinite}
+  @keyframes flutua{0%,100%{transform:translateY(0) rotate(.3deg)}50%{transform:translateY(-12px) rotate(-.4deg)}}
+  @media (prefers-reduced-motion: reduce){.palco .fone,.cv-a,.cv-b{animation:none}}
+  @media (max-width:640px){
+    .cv-a{left:-2%}
+    .cv-b{right:-2%}
+    .cartao-vidro{font-size:.78rem;padding:.55rem .8rem}
+  }
+
+  footer{background:var(--escuro);color:#9c93c0;font-size:.85rem;padding:1.6rem 0}
+  footer .container{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center}
+  footer b{color:#fff}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a class="marca" href="./"><img src="img/marca.png" alt=""><span>Vox<b>Med</b></span></a>
+  </div>
+</header>
+
+<main>
+  <div class="container grade">
+    <div>
+      <span class="selo-ok"><span class="bola">✓</span>Pagamento confirmado · teste de 30 dias ativo</span>
+      <h1>Bem-vindo ao VoxMed.<br><span class="grad">Seu último plantão com papelada já passou.</span></h1>
+      <p class="sub">Seus <b>30 dias grátis começaram agora</b> — nada será cobrado até o fim deles.
+      Três passos e o seu próximo caso já sai documentado por voz:</p>
+
+      <div class="passos">
+        <div class="passo">
+          <span class="num"></span>
+          <div>
+            <h2>Baixe o VoxMed no seu iPhone</h2>
+            <p>O app é feito para iPhone — é nele que a voz é transcrita sem sair do aparelho.</p>
+            <!-- LINK DO APP: trocar o href abaixo pelo link de download/instalação
+                 (TestFlight ou App Store) quando a Elaine enviar. -->
+            <a class="btn" href="mailto:webcamargo@grupopasdiora.com.br?subject=Link%20de%20instala%C3%A7%C3%A3o%20do%20VoxMed&body=Acabei%20de%20assinar%20e%20quero%20o%20link%20de%20instala%C3%A7%C3%A3o.">Baixar o VoxMed para iPhone →</a>
+            <span class="micro">O link de instalação também chega no seu e-mail.</span>
+          </div>
+        </div>
+        <div class="passo">
+          <span class="num"></span>
+          <div>
+            <h2>Receba seus dados de acesso</h2>
+            <p>Enviamos seu usuário e senha para <b>o e-mail usado no pagamento</b>.
+            No primeiro login o app guarda tudo com segurança — depois, é só Face ID.</p>
+          </div>
+        </div>
+        <div class="passo">
+          <span class="num"></span>
+          <div>
+            <h2>Dite seu primeiro caso</h2>
+            <p>Fale como você já fala: <b>“paciente de 52 anos, hipertenso, colecistectomia…”</b>
+            O documento se monta sozinho — você confere campo a campo e assina.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="ajuda">Qualquer dúvida no caminho, fale direto com a gente:
+        <a href="mailto:webcamargo@grupopasdiora.com.br?subject=Ajuda%20VoxMed">webcamargo@grupopasdiora.com.br</a></p>
+    </div>
+
+    <div class="palco">
+      <img class="fone" src="img/fone-ficha.png" alt="iPhone com a ficha anestésica assinada no VoxMed" width="610" height="1223">
+      <div class="cartao-vidro cv-a"><span class="ic">✓</span><span>30 dias ativos<small>nada é cobrado no teste</small></span></div>
+      <div class="cartao-vidro cv-b"><span class="ic">🎙</span><span>Fale. Revise. Assine.<small>seu primeiro caso hoje</small></span></div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <span><b>VoxMed</b> · Prontuário por voz.</span>
+    <span>© 2026 VoxMed · Feito no Brasil · LGPD</span>
+  </div>
+</footer>
+
+</body>
+</html>
