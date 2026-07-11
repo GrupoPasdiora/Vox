@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de Privacidade — ProntoVoz</title>
+<style>
+  :root { --roxo:#7c3aed; --roxo-escuro:#5b21b6; --tinta:#1d1440; --cinza:#6f6690; --fundo:#faf9ff; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); color:var(--tinta); line-height:1.7; }
+  header { background:var(--roxo-escuro); color:#fff; padding:40px 20px; text-align:center; }
+  header h1 { font-size:1.6rem; letter-spacing:-.5px; }
+  header p { color:#e5dcfb; font-size:.95rem; margin-top:6px; }
+  main { max-width:760px; margin:0 auto; padding:32px 20px 64px; }
+  h2 { color:var(--roxo-escuro); font-size:1.15rem; margin:32px 0 10px; }
+  p, li { color:var(--tinta); font-size:1rem; margin-bottom:10px; }
+  ul { padding-left:22px; }
+  .destaque { background:#fff; border:1px solid #e6e1f3; border-left:4px solid var(--roxo); border-radius:10px; padding:14px 16px; margin:16px 0; }
+  .data { color:var(--cinza); font-size:.85rem; margin-top:40px; }
+  a { color:var(--roxo); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Política de Privacidade — ProntoVoz</h1>
+  <p>Fichas médicas por voz, com a privacidade como fundação.</p>
+</header>
+<main>
+
+  <div class="destaque">
+    <p><strong>Em uma frase:</strong> o áudio da sua voz e as fotos que você tira
+    <strong>nunca saem do seu aparelho</strong>; os dados clínicos pertencem ao médico
+    e à clínica; e nós não vendemos nem compartilhamos dados com terceiros para
+    publicidade — nunca.</p>
+  </div>
+
+  <h2>1. Quem somos</h2>
+  <p>O ProntoVoz é um aplicativo para médicos (anestesistas e cirurgiões)
+  preencherem fichas e relatórios médicos por voz, foto ou digitação, operado por
+  <strong>Elaine C R da S Pasdiora LTDA (Grupo Pasdiora)</strong>, Brasil.
+  Contato para assuntos de privacidade: <a href="mailto:webcamargo@grupopasdiora.com.br">webcamargo@grupopasdiora.com.br</a>.</p>
+
+  <h2>2. Que dados tratamos</h2>
+  <ul>
+    <li><strong>Dados da conta do médico:</strong> nome, e-mail, CRM e senha
+    (guardada apenas como hash criptográfico — nem nós conseguimos lê-la).</li>
+    <li><strong>Conteúdo clínico:</strong> as fichas e relatórios que o médico
+    preenche podem conter dados de pacientes (nome, nascimento, convênio,
+    diagnósticos). Esses dados são tratados sob a base legal de
+    <em>tutela da saúde</em> (LGPD, art. 11, II, "f"), em nome do médico e da
+    clínica responsáveis pelo prontuário.</li>
+  </ul>
+
+  <h2>3. O que NUNCA sai do seu aparelho</h2>
+  <ul>
+    <li><strong>Áudio:</strong> o reconhecimento de voz roda no próprio iPhone
+    (tecnologia da Apple). A gravação da sua voz não é enviada a servidor algum.</li>
+    <li><strong>Fotos:</strong> a leitura de etiquetas (OCR) também roda no
+    aparelho. A foto é apagada logo após a leitura — apenas o texto reconhecido
+    segue para o preenchimento.</li>
+  </ul>
+  <p>Somente <strong>texto</strong> é processado pela inteligência artificial, em
+  infraestrutura própria localizada no Brasil.</p>
+
+  <h2>4. Onde os dados ficam</h2>
+  <p>As fichas ficam <strong>no aparelho do médico</strong> (armazenamento local,
+  protegido por biometria). Quando o médico decide sincronizar ou enviar, os dados
+  trafegam <strong>cifrados (HTTPS)</strong> para servidores no Brasil. O envio de
+  um PDF por WhatsApp ou e-mail é sempre uma ação explícita do médico.</p>
+
+  <h2>5. Por quanto tempo guardamos</h2>
+  <p>Documentos médicos assinados integram o prontuário do paciente e têm
+  <strong>guarda legal de longo prazo</strong> (a legislação brasileira exige a
+  retenção de prontuários por até 20 anos). Dados da conta do médico são mantidos
+  enquanto a conta existir.</p>
+
+  <h2>6. Seus direitos (LGPD)</h2>
+  <ul>
+    <li><strong>Excluir a conta:</strong> dentro do app (tela inicial → "Excluir
+    minha conta"). Apaga do servidor o acesso e os dados pessoais do médico.
+    Documentos assinados permanecem no prontuário por obrigação legal.</li>
+    <li><strong>Acessar e corrigir dados:</strong> pelo próprio app ou pelo
+    contato acima.</li>
+    <li><strong>Pacientes:</strong> solicitações sobre dados em fichas devem ser
+    dirigidas ao médico ou à clínica responsável pelo prontuário (controladores
+    do dado clínico); atuamos como operador e daremos todo o suporte técnico.</li>
+  </ul>
+
+  <h2>7. O que NÃO fazemos</h2>
+  <ul>
+    <li>Não vendemos dados. Não compartilhamos dados com terceiros para
+    publicidade ou perfilamento.</li>
+    <li>Não usamos os dados clínicos para treinar inteligência artificial.</li>
+    <li>Nossa telemetria de erros não contém dado de paciente (os registros
+    passam por remoção automática de informações pessoais).</li>
+  </ul>
+
+  <h2>8. Segurança</h2>
+  <ul>
+    <li>Acesso ao app protegido por senha + biometria (Face ID/Touch ID) e
+    autenticação de dois fatores opcional.</li>
+    <li>Token de sessão guardado no cofre de hardware do iPhone (Keychain).</li>
+    <li>Assinatura de documentos com selo criptográfico (hash SHA-256) —
+    documento assinado não pode ser alterado sem detecção.</li>
+    <li>Comunicação sempre cifrada (TLS/HTTPS) com servidores no Brasil.</li>
+  </ul>
+
+  <h2>9. Mudanças nesta política</h2>
+  <p>Se esta política mudar de forma relevante, avisaremos pelo app. A versão
+  vigente estará sempre nesta página.</p>
+
+  <p class="data">Última atualização: 10 de julho de 2026.</p>
+</main>
+</body>
+</html>
