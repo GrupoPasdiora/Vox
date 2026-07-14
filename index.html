@@ -332,6 +332,10 @@
   .plano li b{color:var(--tinta)}
   .plano .preco-nota{font-size:.88rem;color:var(--tinta-2);border-top:1px dashed var(--fio);padding-top:1rem;margin-bottom:1.6rem}
   .plano .btn{margin-top:auto}
+  /* Plano ainda não à venda: botão cinza, sem clique — "Liberado em breve". */
+  .btn.btn-desativado{background:linear-gradient(180deg,#b9b4c6,#a29dbb 55%,#8f89a8);color:#fff;
+      cursor:not-allowed;pointer-events:none;box-shadow:none;opacity:.85}
+  .btn.btn-desativado:hover{transform:none;box-shadow:none}
   .planos-nota{text-align:center;color:var(--tinta-2);font-size:.95rem;margin-top:2.2rem}
   .planos-nota a{color:var(--violeta);font-weight:650}
 
@@ -683,8 +687,10 @@
             <li><span class="tique">✓</span><span>Assinatura biométrica, impressão, faturamento, e-mail e WhatsApp</span></li>
           </ul>
           <p class="preco-nota">Assinatura mensal individual · o valor aparece no checkout, antes de confirmar · sem fidelidade</p>
-          <a class="btn" href="https://buy.stripe.com/9B6fZh6aqcZigd25KG2oE02">Começar grátis — Cirurgia <span class="seta">→</span></a>
-          <span class="micro" style="text-align:center">Checkout seguro no Stripe — o cartão ativa o teste, nada é cobrado nos 30 dias · o link de instalação chega no e-mail do pagamento</span>
+          <!-- Reativar quando o app do cirurgião chegar à App Store:
+               <a class="btn" href="https://buy.stripe.com/9B6fZh6aqcZigd25KG2oE02">Começar grátis — Cirurgia <span class="seta">→</span></a> -->
+          <span class="btn btn-desativado" role="button" aria-disabled="true">Liberado em breve</span>
+          <span class="micro" style="text-align:center">O app do cirurgião está em fase final de preparação — em breve nesta página</span>
         </article>
       </div>
       <p class="planos-nota rev">Clínica ou equipe com os dois perfis?
