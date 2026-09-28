@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ProntoVoz — Ficha anestésica e relatório cirúrgico por voz | Você dita, confere e assina</title>
-<meta name="description" content="A papelada é a única parte do plantão que dá para devolver. Dite durante o caso, confira campo a campo, assine com biometria. Ficha anestésica e relatório de cirurgia por voz, LGPD desde o primeiro dia. 30 dias grátis — nada é cobrado durante o teste.">
+<title>ProntoVoz — Ficha anestésica e relatório cirúrgico por voz</title>
+<meta name="description" content="Dite ou fotografe, confira os dados e prepare o PDF da ficha anestésica ou do relatório cirúrgico. Nas próximas versões, médicos elegíveis poderão testar por 14 dias sem cadastrar cartão no app.">
 <meta name="keywords" content="ficha anestésica digital, relatório cirúrgico por voz, prontuário por voz, documentação médica, anestesiologista, cirurgião, LGPD, ProntoVoz">
 <meta name="author" content="ProntoVoz">
 <meta name="robots" content="index,follow">
@@ -17,7 +17,7 @@
 <link rel="preload" as="image" href="img/foto-cirurgiao.jpg" fetchpriority="high">
 <link rel="preload" as="image" href="img/app-escolha.webp" fetchpriority="high">
 <meta property="og:title" content="ProntoVoz — volte para casa quando o caso termina">
-<meta property="og:description" content="Ficha anestésica e relatório de cirurgia pela sua voz, com revisão campo a campo e assinatura biométrica. O documento termina junto com o caso. 30 dias grátis — nada é cobrado durante o teste.">
+<meta property="og:description" content="Ficha anestésica e relatório de cirurgia por voz, com conferência do médico e prévia do PDF. Próxima atualização: 14 dias de teste sem cartão para contas elegíveis.">
 <meta property="og:image" content="https://grupopasdiora.github.io/Vox/img/foto-cirurgiao.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="675">
@@ -27,7 +27,7 @@
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ProntoVoz — volte para casa quando o caso termina">
-<meta name="twitter:description" content="Ficha anestésica e relatório de cirurgia pela sua voz: dite durante o caso, confira campo a campo, assine com biometria. 30 dias grátis.">
+<meta name="twitter:description" content="Dite ou fotografe, confira o documento e prepare o PDF. Próxima atualização: teste de 14 dias sem cartão para contas elegíveis.">
 <meta name="twitter:image" content="https://grupopasdiora.github.io/Vox/img/foto-cirurgiao.jpg">
 <script type="application/ld+json">
 {
@@ -43,22 +43,19 @@
       "inLanguage": "pt-BR",
       "url": "https://grupopasdiora.github.io/Vox/",
       "image": "https://grupopasdiora.github.io/Vox/img/foto-cirurgiao.jpg",
-      "description": "App para anestesistas e cirurgiões: o médico dita durante o caso (ou fotografa a etiqueta do paciente), a IA organiza os campos do documento (ficha anestésica ou relatório cirúrgico), o médico confere campo a campo e assina com biometria. A transcrição acontece no aparelho — áudio e fotos não vão para a nuvem — e o documento assinado é selado com hash criptográfico, em conformidade com a LGPD.",
+      "description": "App para anestesiologistas e cirurgiões registrarem o caso por voz, foto ou digitação. O profissional confere os campos e prepara o PDF da ficha anestésica ou do relatório cirúrgico. O teste de 14 dias sem cartão estará disponível nas próximas versões para contas elegíveis; depois, a assinatura individual é contratada pela App Store.",
       "audience": { "@type": "MedicalAudience", "audienceType": "Anestesiologistas e cirurgiões" },
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "BRL",
-        "description": "30 dias grátis no acesso antecipado — o checkout pede o cartão para ativar o teste, mas nada é cobrado durante os 30 dias. Depois, assinatura mensal individual sem fidelidade."
+        "description": "Nas próximas versões, 14 dias de teste sem cadastrar cartão no app para contas elegíveis. O teste não inicia uma cobrança automática. Depois, o acesso pago exige uma assinatura individual confirmada pela App Store."
       },
       "featureList": [
-        "Ficha anestésica completa por voz, com grade de vitais em tempo real",
-        "Preenchimento por foto: etiqueta do paciente e ampola, lidas no aparelho e apagadas em seguida",
-        "Relatório de cirurgia ditado, com CID-10 e procedimentos organizados pela IA",
-        "Aprovação campo a campo — a IA nunca inventa dados",
-        "Assinatura com biometria (Face ID ou digital)",
-        "Funciona sem internet no centro cirúrgico (offline-first)",
-        "PDF por e-mail, WhatsApp ou impressão; pacote de faturamento sem narrativa clínica"
+        "Registro por voz, foto ou digitação",
+        "Conferência campo a campo pelo profissional",
+        "Ficha anestésica e relatório cirúrgico em PDF",
+        "Compartilhamento do PDF por iniciativa do profissional"
       ]
     },
     {
@@ -69,34 +66,6 @@
       "logo": "https://grupopasdiora.github.io/Vox/img/prontovoz-simbolo.png",
       "email": "webcamargo@grupopasdiora.com.br",
       "areaServed": { "@type": "Country", "name": "Brasil" }
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://grupopasdiora.github.io/Vox/#faq",
-      "mainEntity": [
-        { "@type": "Question", "name": "Funciona sem internet no centro cirúrgico?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Sim. O ProntoVoz é offline-first: o documento nasce e vive no aparelho. Voz, grade de vitais, assinatura e PDF funcionam sem rede. A internet só é necessária no primeiro login e para sincronizar — e a ficha mostra o status com honestidade: 'aguardando envio ao servidor'." } },
-        { "@type": "Question", "name": "A IA pode inventar um dado que o médico não falou?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Não — essa é uma regra inegociável do produto. O que não foi ditado fica em branco, e campo crítico em branco bloqueia a assinatura. A IA sugere; quem decide, sempre, é o médico." } },
-        { "@type": "Question", "name": "Se a IA errar, a responsabilidade é de quem?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Do médico — como sempre foi, no papel ou fora dele. É exatamente por isso que nada entra no documento sem aprovação campo a campo: o que não foi aprovado não existe na ficha, e o que a IA não ouviu fica em branco em vez de inventado. A IA aqui é um escrevente rápido, não um colega que opina." } },
-        { "@type": "Question", "name": "Conferir campo a campo não demora mais que digitar?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Não: conferir é ler e tocar em aprovar — não redigitar. Os campos críticos são contados na tela (7 de 7 aprovados libera o envio) e cada campo tem um microfone para corrigir por voz, sem teclado. Na prática, leva menos tempo do que passar uma única grade a limpo." } },
-        { "@type": "Question", "name": "O teste grátis pede cartão?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Pede — é o cartão que ativa os 30 dias grátis no checkout do Stripe. Nada é cobrado durante o teste: a primeira cobrança só acontece ao final dos 30 dias, e cancelar antes leva um clique, sem multa e sem fidelidade. Preferimos avisar aqui a você descobrir lá." } },
-        { "@type": "Question", "name": "Quanto custa depois dos 30 dias grátis?",
-          "acceptedAnswer": { "@type": "Answer", "text": "É uma assinatura mensal individual, sem fidelidade e sem multa. O valor exato aparece no checkout, antes de você confirmar qualquer coisa — nada de 'fale com o nosso comercial'. Nos 30 dias de teste não há cobrança; cancelou antes do fim, não paga nada." } },
-        { "@type": "Question", "name": "Tem para Android?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Hoje o ProntoVoz é feito para iPhone — é nele que a transcrição roda dentro do aparelho, sem o áudio sair para a internet. A versão Android está no radar." } },
-        { "@type": "Question", "name": "E se o hospital só aceitar papel?",
-          "acceptedAnswer": { "@type": "Answer", "text": "O PDF sai no formato da ficha que o médico conhece, com a grade estilo papel. Imprime na hora e anexa ao prontuário, como sempre. O ProntoVoz não exige que o hospital mude nada." } },
-        { "@type": "Question", "name": "O documento tem valor legal?",
-          "acceptedAnswer": { "@type": "Answer", "text": "O documento sai com assinatura eletrônica avançada: biometria no ato de assinar e hash criptográfico que torna qualquer alteração posterior detectável — assinado, ele é imutável. Certificado ICP-Brasil a estrutura já está pronta, mas ainda não emitimos: se o serviço exigir ICP-Brasil hoje, imprima e assine à mão, como sempre valeu. A adequação às normas de cada serviço deve ser validada com ele." } },
-        { "@type": "Question", "name": "Os dados dos pacientes vão para a nuvem?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Áudio e fotos, nunca — a transcrição da voz e a leitura da etiqueta acontecem dentro do iPhone, e as fotos são apagadas logo após a leitura (o aviso está na própria tela do app). Apenas texto segue para servidores próprios, no Brasil, sob LGPD. Enviar um documento por e-mail ou WhatsApp é sempre uma ação do médico, nunca automática." } },
-        { "@type": "Question", "name": "E se o médico cancelar a assinatura?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Os documentos assinados continuam no aparelho — são do médico, que pode exportá-los em PDF ou em formato estruturado antes de sair. Sem fidelidade, sem multa." } }
-      ]
     }
   ]
 }
@@ -398,7 +367,7 @@
       <a href="#seguranca">Segurança</a>
       <a href="#planos">Planos</a>
     </div>
-    <a class="nav-cta" href="#planos">Começar grátis</a>
+    <a class="nav-cta" href="#planos">Ver os apps</a>
   </nav>
 </header>
 
@@ -415,14 +384,14 @@
         <b>ficha anestésica</b> ou o <b>relatório de cirurgia</b>. Sobra para você só o que
         sempre foi seu: <b>conferir campo a campo e assinar</b>.</p>
         <div class="acoes rev in d2">
-          <a class="btn" href="#planos">Começar 30 dias grátis <span class="seta">→</span></a>
+          <a class="btn" href="#planos">Conhecer os dois apps <span class="seta">→</span></a>
           <a class="btn-fantasma" href="#como-funciona">Ver como funciona</a>
         </div>
-        <p class="micro rev in d2">Acesso antecipado · só para iPhone · o checkout pede cartão, mas nada é cobrado nos 30 dias · cancele quando quiser</p>
+        <p class="micro rev in d2">Próxima atualização: teste de 14 dias sem cadastrar cartão para contas elegíveis. Depois, assinatura individual pela App Store.</p>
         <div class="fatos rev in d3">
           <span><b>Voz e fotos no aparelho</b> — nada disso sai do iPhone</span>
-          <span><b>Revisão sempre sua</b> — a IA nunca inventa</span>
-          <span><b>Funciona sem internet</b> no centro cirúrgico</span>
+          <span><b>Revisão sempre sua</b> — confirme cada informação antes de usar</span>
+          <span><b>Rascunhos no iPhone</b> — o acesso precisa ser validado pela internet ao abrir o app</span>
           <span><b>LGPD</b> desde o primeiro dia</span>
         </div>
       </div>
@@ -501,7 +470,7 @@
           <h3>Com o ProntoVoz</h3>
           <ol>
             <li><span class="tique">✓</span><span><b>Você fala durante o caso</b> — a ficha se monta em tempo real</span></li>
-            <li><span class="tique">✓</span><span><b>Confere campo a campo</b> — a IA nunca inventa nada</span></li>
+            <li><span class="tique">✓</span><span><b>Confere campo a campo</b> antes de finalizar</span></li>
             <li><span class="tique">✓</span><span><b>Assina com biometria</b> ao final do ato</span></li>
             <li><span class="tique">✓</span><span><b>Envia na hora</b>: impressão, faturamento, e-mail, WhatsApp</span></li>
             <li><span class="tique">✓</span><span><b>E vai embora.</b> A papelada terminou junto com o caso</span></li>
@@ -509,8 +478,8 @@
         </div>
       </div>
       <div class="cta-meio rev">
-        <a class="btn" href="#planos">Começar 30 dias grátis <span class="seta">→</span></a>
-        <span class="micro">Nada é cobrado no teste · cancele quando quiser</span>
+        <a class="btn" href="#planos">Conhecer os dois apps <span class="seta">→</span></a>
+        <span class="micro">Nas próximas versões, o teste elegível não exige cartão e não gera cobrança automática.</span>
       </div>
     </div>
   </section>
@@ -521,7 +490,7 @@
       <div class="passos-cab rev">
         <span class="olho">Como funciona</span>
         <h2 class="titulo">Fale. Confira. <span style="background:linear-gradient(92deg,var(--violeta),#a06bff);-webkit-background-clip:text;background-clip:text;color:transparent">Assine.</span></h2>
-        <p class="lede">Quatro passos — um é da IA, três são seus. Nenhum deles é digitar.</p>
+        <p class="lede">Quatro passos simples. Você escolhe o que entra no documento.</p>
         <p style="margin-top:1.2rem"><span class="selo-real">📱 Telas reais do app — os pacientes exibidos são fictícios</span></p>
       </div>
       <div class="trilho">
@@ -536,8 +505,8 @@
           <figure class="iphone"><div class="tela">
             <img src="img/app-hub.webp" alt="Tela real do hub da ficha: 5 etapas concluídas, 8 campos vindos da voz, 7 de 7 campos críticos aprovados" loading="lazy" decoding="async" width="720" height="1400">
           </div></figure>
-          <p><span class="num">2</span><b>A IA organiza a sua fala em campos</b> — na tela:
-          “8 campos vindos da voz”. O que você não disse fica em branco: <b>a IA nunca inventa</b>.</p>
+          <p><span class="num">2</span><b>O app mostra os dados identificados</b> para sua revisão.
+          O que não foi registrado precisa ser preenchido por você.</p>
         </article>
         <article class="passo rev d2">
           <figure class="iphone"><div class="tela tela-zoom">
@@ -578,8 +547,8 @@
           <li><span class="tique">✓</span><span><b>Sem clima para falar?</b> Fotografe a etiqueta do paciente e a ampola — a leitura acontece no aparelho e as fotos são apagadas em seguida.</span></li>
           <li><span class="tique">✓</span><span><b>Saia do hospital com a ficha assinada</b> — impressa, no faturamento ou no WhatsApp.</span></li>
         </ul>
-        <a class="btn" href="#planos">Começar 30 dias grátis <span class="seta">→</span></a>
-        <span class="micro">Plano Anestesia · nada é cobrado no teste</span>
+        <a class="btn" href="#planos">Conhecer Anestesia <span class="seta">→</span></a>
+        <span class="micro">Próxima versão: 14 dias sem cartão para contas elegíveis.</span>
       </div>
     </div>
   </section>
@@ -599,12 +568,12 @@
         <p class="lede">Terminou o ato, você narra: diagnóstico, procedimentos, equipe, descrição
         cirúrgica. O ProntoVoz estrutura tudo no formato do documento oficial.</p>
         <ul class="lista-fina">
-          <li><span class="tique">✓</span><span><b>CID-10 e procedimentos organizados.</b> A IA reconhece códigos e monta a lista — você só confere.</span></li>
+          <li><span class="tique">✓</span><span><b>CID-10 e procedimentos</b> podem ser registrados e conferidos por você.</span></li>
           <li><span class="tique">✓</span><span><b>Descrição cirúrgica ditada</b>, com a narrativa completa no PDF final.</span></li>
           <li><span class="tique">✓</span><span><b>Pacote de faturamento sem narrativa clínica</b> — só o que o convênio precisa ver.</span></li>
         </ul>
-        <a class="btn" href="#planos">Começar 30 dias grátis <span class="seta">→</span></a>
-        <span class="micro">Plano Cirurgia · nada é cobrado no teste</span>
+        <a class="btn" href="#planos">Conhecer Cirurgia <span class="seta">→</span></a>
+        <span class="micro">Próxima versão: 14 dias sem cartão para contas elegíveis.</span>
       </div>
     </div>
   </section>
@@ -655,15 +624,16 @@
       <div class="planos-cab rev">
         <span class="olho">Acesso antecipado</span>
         <h2 class="titulo">Escolha o seu ProntoVoz</h2>
-        <p class="lede" style="margin:0 auto">Troque a papelada do plantão por <b>30 dias de voz — grátis</b>.
-        Os primeiros médicos ajudam a moldar a ferramenta — e quem assina os documentos continua sendo
-        <b>você</b>, sempre.</p>
+        <p class="lede" style="margin:0 auto">Nas próximas versões, médicos elegíveis poderão usar cada app por
+        <b>14 dias sem cadastrar cartão</b>. O teste começa no app, após criar a conta, e não inicia cobrança automática.
+        Depois do prazo, a continuidade exige uma assinatura individual pela App Store.</p>
+        <p class="micro">Essa experiência chegará nas versões 1.1.6 (Anestesia) e 1.0.4 (Cirurgia), após aprovação da Apple. A versão atualmente disponível pode ter condições diferentes.</p>
         <p class="escolha-doc">São dois apps, um por função. Escolha pelo documento que você assina:
         <b>ficha anestésica → Anestesia</b> · <b>relatório do ato cirúrgico → Cirurgia</b>.</p>
       </div>
       <div class="planos">
         <article class="plano rev">
-          <span class="selo-teste">30 dias grátis</span>
+          <span class="selo-teste">14 dias sem cartão na próxima versão</span>
           <h3>ProntoVoz Anestesia</h3>
           <p class="para">Para anestesiologistas</p>
           <ul>
@@ -672,29 +642,27 @@
             <li><span class="tique">✓</span><span><b>Modo sala</b> para registrar o ato enquanto ele acontece</span></li>
             <li><span class="tique">✓</span><span>Assinatura biométrica, impressão, faturamento, e-mail e WhatsApp</span></li>
           </ul>
-          <p class="preco-nota">Assinatura mensal individual · o valor aparece no checkout, antes de confirmar · sem fidelidade</p>
-          <a class="btn" href="https://buy.stripe.com/fZu9AT42ie3m1i87SO2oE01">Começar grátis — Anestesia <span class="seta">→</span></a>
-          <span class="micro" style="text-align:center">Checkout seguro no Stripe — o cartão ativa o teste, nada é cobrado nos 30 dias · o link de instalação chega no e-mail do pagamento</span>
+          <p class="preco-nota">Após o teste, assinatura individual pela App Store · preço e condições exibidos antes da compra</p>
+          <a class="btn" href="https://apps.apple.com/br/app/prontovoz-anestesiologista/id6789366049" target="_blank" rel="noopener">Ver Anestesia na App Store <span class="seta">→</span></a>
+          <span class="micro" style="text-align:center">O teste da próxima versão não pede cartão nem inicia uma assinatura automaticamente.</span>
         </article>
         <article class="plano rev d1">
-          <span class="selo-teste">30 dias grátis</span>
+          <span class="selo-teste">14 dias sem cartão na próxima versão</span>
           <h3>ProntoVoz Cirurgia</h3>
           <p class="para">Para cirurgiões</p>
           <ul>
             <li><span class="tique">✓</span><span><b>Relatório de cirurgia</b> ditado, no formato do documento oficial</span></li>
-            <li><span class="tique">✓</span><span><b>CID-10 e procedimentos</b> organizados pela IA, aprovados por você</span></li>
+            <li><span class="tique">✓</span><span><b>CID-10 e procedimentos</b> registrados e conferidos por você</span></li>
             <li><span class="tique">✓</span><span><b>Descrição cirúrgica sem digitar</b>, com narrativa completa no PDF</span></li>
             <li><span class="tique">✓</span><span>Assinatura biométrica, impressão, faturamento, e-mail e WhatsApp</span></li>
           </ul>
-          <p class="preco-nota">Assinatura mensal individual · o valor aparece no checkout, antes de confirmar · sem fidelidade</p>
-          <!-- Reativar quando o app do cirurgião chegar à App Store:
-               <a class="btn" href="https://buy.stripe.com/9B6fZh6aqcZigd25KG2oE02">Começar grátis — Cirurgia <span class="seta">→</span></a> -->
-          <span class="btn btn-desativado" role="button" aria-disabled="true">Liberado em breve</span>
-          <span class="micro" style="text-align:center">O app do cirurgião está em fase final de preparação — em breve nesta página</span>
+          <p class="preco-nota">Após o teste, assinatura individual pela App Store · preço e condições exibidos antes da compra</p>
+          <a class="btn" href="https://apps.apple.com/br/app/prontovoz-cirurgi%C3%A3o/id6790446881" target="_blank" rel="noopener">Ver Cirurgia na App Store <span class="seta">→</span></a>
+          <span class="micro" style="text-align:center">O teste da próxima versão não pede cartão nem inicia uma assinatura automaticamente.</span>
         </article>
       </div>
-      <p class="planos-nota rev">Clínica ou equipe com os dois perfis?
-        <a href="mailto:webcamargo@grupopasdiora.com.br?subject=ProntoVoz%20para%20minha%20equipe">Fale com a gente</a>.</p>
+      <p class="planos-nota rev">Precisa dos dois documentos? Você pode baixar os dois apps;
+        o acesso de cada um é individual.</p>
     </div>
   </section>
 
@@ -708,38 +676,36 @@
       <div class="faq">
         <details class="rev">
           <summary>Funciona sem internet no centro cirúrgico?</summary>
-          <p>Sim. O ProntoVoz é offline-first: o documento nasce e vive no seu aparelho. Voz, grade de vitais,
-          assinatura e PDF funcionam sem rede. A internet só é necessária no primeiro login e para sincronizar —
-          e a ficha mostra o status com honestidade: “aguardando envio ao servidor”, como você viu nas telas acima.</p>
+          <p>É possível trabalhar em rascunhos no iPhone quando a conexão oscila. Para confirmar o acesso ao
+          abrir o app, iniciar o teste, contratar uma assinatura e sincronizar, é necessária internet.
+          O app mostra quando um documento ainda aguarda envio ao servidor.</p>
         </details>
         <details class="rev">
-          <summary>A IA pode inventar um dado que eu não falei?</summary>
-          <p>Não — essa é uma regra inegociável do produto. O que você não ditou fica em branco, e campo
-          crítico em branco bloqueia a assinatura. A IA sugere; quem decide, sempre, é você.</p>
+          <summary>Os campos são preenchidos sem eu conferir?</summary>
+          <p>Não. Dados identificados por voz, foto ou digitação precisam ser conferidos por você.
+          Informações que faltarem devem ser completadas antes de finalizar o documento.</p>
         </details>
         <details class="rev">
-          <summary>Se a IA errar, a responsabilidade é de quem?</summary>
-          <p>Sua — como sempre foi, no papel ou fora dele. É exatamente por isso que nada entra no documento
-          sem a sua aprovação campo a campo: o que você não aprovou não existe na ficha, e o que a IA não ouviu
-          fica em branco em vez de inventado. A IA aqui é um escrevente rápido, não um colega que opina.</p>
+          <summary>E se algum dado vier errado?</summary>
+          <p>Você pode corrigir, rejeitar ou digitar novamente antes de finalizar. O app auxilia o registro;
+          a conferência clínica e a decisão sobre o conteúdo continuam com o profissional.</p>
         </details>
         <details class="rev">
           <summary>Conferir campo a campo não demora mais que digitar?</summary>
-          <p>Não: conferir é ler e tocar em aprovar — não redigitar. Os campos críticos são contados na tela
-          (“7 de 7 aprovados” libera o envio) e cada campo tem um microfone para corrigir por voz, sem teclado.
-          Na prática, leva menos tempo do que passar uma única grade a limpo.</p>
+          <p>Você revisa as informações identificadas e corrige apenas o que precisar. Os campos pendentes
+          aparecem na tela para facilitar a conferência antes de finalizar.</p>
         </details>
         <details class="rev">
           <summary>O teste grátis pede cartão?</summary>
-          <p>Pede — é o cartão que ativa os 30 dias grátis no checkout do Stripe. Nada é cobrado durante o
-          teste: a primeira cobrança só acontece ao final dos 30 dias, e cancelar antes leva um clique, sem
-          multa e sem fidelidade. Preferimos avisar aqui a você descobrir lá.</p>
+          <p>Nas próximas versões, uma conta elegível poderá ativar 14 dias de teste no app sem cadastrar
+          cartão. O teste não inicia uma assinatura nem uma cobrança automática. Para continuar após o prazo,
+          você decide se quer contratar a assinatura individual pela App Store.</p>
         </details>
         <details class="rev">
-          <summary>Quanto custa depois dos 30 dias?</summary>
-          <p>É uma assinatura mensal individual, sem fidelidade e sem multa. O valor exato aparece no checkout,
-          antes de você confirmar qualquer coisa — nada de “fale com o nosso comercial”. Nos 30 dias de teste
-          não há cobrança; cancelou antes do fim, não paga nada.</p>
+          <summary>O que acontece depois dos 14 dias?</summary>
+          <p>Para continuar usando o app após o teste, é necessário contratar uma assinatura mensal individual
+          pela App Store. Sem ela, o acesso fica bloqueado. A App Store mostra o preço e as condições antes da
+          confirmação; você pode gerenciar ou cancelar a assinatura nas configurações da sua Conta Apple.</p>
         </details>
         <details class="rev">
           <summary>Tem para Android?</summary>
@@ -749,8 +715,8 @@
         </details>
         <details class="rev">
           <summary>Sou anestesista e também atuo em cirurgias — qual escolho?</summary>
-          <p>Cada plano corresponde a um app com o documento da sua função: a ficha anestésica ou o relatório
-          de cirurgia. Se o seu dia a dia pede os dois, fale com a gente — montamos o acesso combinado.</p>
+          <p>Cada app corresponde ao documento da sua função: a ficha anestésica ou o relatório de cirurgia.
+          Se o seu dia a dia pede os dois, baixe os dois apps; cada um tem acesso e assinatura individuais.</p>
         </details>
         <details class="rev">
           <summary>E se o hospital só aceitar papel?</summary>
@@ -789,7 +755,7 @@
       <h2 class="rev d1">A papelada não merece<br>mais uma hora da sua vida.</h2>
       <p class="rev d2">Seu próximo documento se escreve enquanto você trabalha.<br>
       Você só confere e assina — é assim que deve ser.</p>
-      <a class="btn rev d2" href="#planos">Começar 30 dias grátis <span class="seta">→</span></a>
+      <a class="btn rev d2" href="#planos">Conhecer os dois apps <span class="seta">→</span></a>
     </div>
   </section>
 
