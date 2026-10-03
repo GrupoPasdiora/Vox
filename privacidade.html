@@ -28,9 +28,10 @@
 <main>
 
   <div class="destaque">
-    <p><strong>Em uma frase:</strong> o áudio da sua voz e as fotos que você tira
-    <strong>nunca saem do seu aparelho</strong>; os dados clínicos pertencem ao médico
-    e à clínica; e nós não vendemos nem compartilhamos dados com terceiros para
+    <p><strong>Em uma frase:</strong> o reconhecimento de voz e a leitura inicial
+    das fotos acontecem no aparelho. Texto e fichas podem ser enviados aos serviços
+    necessários ao preenchimento, à geração do PDF, à sincronização e à assinatura.
+    Os dados clínicos pertencem ao médico e à clínica; nós não vendemos nem compartilhamos dados com terceiros para
     publicidade — nunca.</p>
   </div>
 
@@ -42,8 +43,9 @@
 
   <h2>2. Que dados tratamos</h2>
   <ul>
-    <li><strong>Dados da conta do médico:</strong> nome, e-mail, telefone, CRM,
-    identificador interno do usuário e senha
+    <li><strong>Dados da conta e do perfil profissional do médico:</strong> nome,
+    e-mail, telefone, CPF, data de nascimento, número e UF do CRM, especialidade,
+    RQE quando informado, identificador interno do usuário e senha
     (guardada apenas como hash criptográfico — nem nós conseguimos lê-la).</li>
     <li><strong>Conteúdo clínico:</strong> as fichas e relatórios que o médico
     preenche podem conter dados de pacientes (nome, nascimento, convênio,
@@ -55,28 +57,43 @@
     <li><strong>Dados de assinatura:</strong> produto contratado, situação da
     assinatura, histórico e identificadores de transações informados pela Apple.
     Não recebemos o número completo, o código de segurança nem os dados do cartão.</li>
+    <li><strong>Dados da assinatura digital de documentos:</strong> dados de
+    verificação do perfil profissional, identificação e situação do certificado
+    conectado, titular, emissor, número de série, validade e registros das
+    autorizações e assinaturas realizadas.</li>
     <li><strong>Dados técnicos e de segurança:</strong> identificador do aparelho,
     versão do app, sistema operacional e registros técnicos necessários para
     autenticação, prevenção de fraude, diagnóstico de falhas e funcionamento do app.</li>
   </ul>
 
-  <h2>3. O que NUNCA sai do seu aparelho</h2>
+  <h2>3. Voz, fotos e preenchimento</h2>
   <ul>
-    <li><strong>Áudio:</strong> o reconhecimento de voz roda no próprio iPhone
+    <li><strong>Áudio:</strong> o reconhecimento de voz roda no próprio aparelho
     (tecnologia da Apple). A gravação da sua voz não é enviada a servidor algum.</li>
     <li><strong>Fotos:</strong> a leitura de etiquetas (OCR) também roda no
     aparelho. A cópia temporária criada pelo app é removida após a leitura;
-    a foto original escolhida na galeria permanece na sua biblioteca. Apenas o
-    texto reconhecido segue para o preenchimento.</li>
+    a foto original escolhida na galeria permanece na sua biblioteca. Na
+    configuração atual, as fotografias não são transmitidas aos nossos servidores
+    para processamento adicional.</li>
   </ul>
-  <p>O texto reconhecido pode ser usado para preencher fichas e relatórios no app.
-  Os dados clínicos sincronizados são tratados em servidores no Brasil, conforme descrito abaixo.</p>
+  <p>Para sugerir campos, o app pode enviar o texto reconhecido da voz ou das fotos
+  à API do ProntoVoz. Quando o processamento adicional está indisponível, o app usa
+  o preenchimento básico local. As sugestões precisam ser conferidas pelo médico.
+  Os dados clínicos enviados à nossa API são tratados nos servidores do ProntoVoz,
+  conforme descrito abaixo.</p>
 
   <h2>4. Onde os dados ficam</h2>
   <p>As fichas ficam <strong>no aparelho do médico</strong> (armazenamento local,
-  protegido por biometria). Quando o médico decide sincronizar ou enviar, os dados
-  trafegam <strong>cifrados (HTTPS)</strong> para servidores no Brasil. O envio de
-  um PDF por WhatsApp ou e-mail é sempre uma ação explícita do médico.</p>
+  protegido por biometria). Para gerar a prévia e o PDF, o app envia o conteúdo da
+  ficha aos servidores do ProntoVoz. Documentos assinados também podem ser
+  sincronizados; pendências de envio podem ser reenviadas automaticamente ao
+  abrir e desbloquear o app com conexão disponível. Esses dados trafegam
+  <strong>cifrados (HTTPS)</strong> para nossos servidores.</p>
+  <p>Ao escolher a assinatura qualificada ICP-Brasil, o PDF é encaminhado à BRy
+  para assinatura. Os dados necessários à identificação, ao certificado e à
+  autorização da assinatura são tratados pela BRy e pelo provedor do certificado.
+  O envio de um PDF por WhatsApp ou e-mail é
+  sempre uma ação explícita do médico.</p>
   <p>Compras e renovações são processadas pela Apple. A Apple administra o método
   de pagamento e nos informa somente os dados necessários para validar a transação
   e liberar, restaurar, gerenciar ou encerrar o acesso à assinatura.</p>
@@ -91,8 +108,12 @@
 
   <h2>6. Seus direitos (LGPD)</h2>
   <ul>
-    <li><strong>Excluir a conta:</strong> dentro do app (tela inicial → "Excluir
-    minha conta"). Apaga do servidor o acesso e os dados pessoais do médico.
+    <li><strong>Excluir a conta:</strong> dentro do app, em Início → Ajustes →
+    "Excluir minha conta". No ProntoVoz Anestesiologista, a partir da versão 1.1.6,
+    a opção também fica disponível na tela do plano quando o acesso está encerrado,
+    sem exigir uma assinatura paga.
+    A exclusão exige confirmação da identidade e conexão com o servidor. Apaga
+    do servidor o acesso e os dados pessoais do médico.
     Documentos assinados permanecem no prontuário por obrigação legal.</li>
     <li><strong>Acessar e corrigir dados:</strong> pelo próprio app ou pelo
     contato acima.</li>
@@ -112,19 +133,25 @@
 
   <h2>8. Segurança</h2>
   <ul>
-    <li>Acesso ao app protegido por senha + biometria (Face ID/Touch ID) e
-    autenticação de dois fatores opcional.</li>
-    <li>Token de sessão guardado no cofre de hardware do iPhone (Keychain).</li>
-    <li>Assinatura de documentos com selo criptográfico (hash SHA-256) —
-    documento assinado não pode ser alterado sem detecção.</li>
-    <li>Comunicação sempre cifrada (TLS/HTTPS) com servidores no Brasil.</li>
+    <li>Acesso ao app protegido por senha e verificação no aparelho. Para contas
+    com autenticação de dois fatores ativada, o login também exige o código do
+    aplicativo autenticador.</li>
+    <li>Token de sessão guardado no armazenamento seguro do sistema (Keychain).</li>
+    <li>No ProntoVoz Anestesiologista, a partir da versão 1.1.6, Face ID ou Touch ID
+    confirma a revisão do documento e não assina o PDF.
+    A assinatura qualificada ICP-Brasil exige perfil e certificado elegíveis e
+    autorização no provedor. Na opção manual, o PDF é preparado sem assinatura
+    digital para ser assinado no papel.</li>
+    <li>Documentos assinados digitalmente têm registros de integridade
+    (hash SHA-256) para detectar alterações.</li>
+    <li>Comunicação com nossos servidores cifrada por TLS/HTTPS.</li>
   </ul>
 
   <h2>9. Mudanças nesta política</h2>
   <p>Se esta política mudar de forma relevante, avisaremos pelo app. A versão
   vigente estará sempre nesta página.</p>
 
-  <p class="data">Última atualização: 28 de setembro de 2026.</p>
+  <p class="data">Última atualização: 3 de outubro de 2026.</p>
 </main>
 </body>
 </html>
