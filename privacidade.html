@@ -58,7 +58,8 @@
     assinatura, histórico e identificadores de transações informados pela Apple.
     Não recebemos o número completo, o código de segurança nem os dados do cartão.</li>
     <li><strong>Dados da assinatura digital de documentos:</strong> dados de
-    verificação do perfil profissional, identificação e situação do certificado
+    confirmação de identidade e, quando aplicável, verificação do perfil
+    profissional, identificação e situação do certificado
     conectado, titular, emissor, número de série, validade e registros das
     autorizações e assinaturas realizadas.</li>
     <li><strong>Dados técnicos e de segurança:</strong> identificador do aparelho,
@@ -139,9 +140,17 @@
     <li>Token de sessão guardado no armazenamento seguro do sistema (Keychain).</li>
     <li>No ProntoVoz Anestesiologista, a partir da versão 1.1.6, Face ID ou Touch ID
     confirma a revisão do documento e não assina o PDF.
-    A assinatura qualificada ICP-Brasil exige perfil e certificado elegíveis e
-    autorização no provedor. Na opção manual, o PDF é preparado sem assinatura
-    digital para ser assinado no papel.</li>
+    A assinatura qualificada ICP-Brasil exige dados profissionais preenchidos,
+    e-CPF válido em nuvem de provedor compatível integrado à BRy, CPF correspondente
+    ao cadastro, assinatura de teste aprovada e autorização no provedor.
+    O e-CPF confirma a identidade; CRM, RQE e especialidade são dados declarados
+    pelo médico e não são consultados nem aprovados automaticamente pelo app.
+    Restrições profissionais já identificadas continuam impedindo a assinatura.
+    Na opção manual, o PDF é preparado sem assinatura digital para ser assinado
+    no papel.</li>
+    <li>Na versão atualmente publicada do ProntoVoz Cirurgião, a conexão do
+    certificado ainda exige a verificação do perfil profissional no fluxo
+    apresentado no aplicativo.</li>
     <li>Documentos assinados digitalmente têm registros de integridade
     (hash SHA-256) para detectar alterações.</li>
     <li>Comunicação com nossos servidores cifrada por TLS/HTTPS.</li>
