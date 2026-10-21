@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://grupopasdiora.github.io/Vox/</loc>
-    <lastmod>2026-09-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <loc>https://grupopasdiora.github.io/Vox/anestesiologista.html</loc>
+    <lastmod>2026-10-03</lastmod>
+  </url>
+  <url>
+    <loc>https://grupopasdiora.github.io/Vox/privacidade.html</loc>
+    <lastmod>2026-10-03</lastmod>
+  </url>
+  <url>
+    <loc>https://grupopasdiora.github.io/Vox/suporte.html</loc>
+    <lastmod>2026-10-21</lastmod>
   </url>
 </urlset>
